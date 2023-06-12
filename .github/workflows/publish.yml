@@ -1,0 +1,46 @@
+---
+name: Chart Publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+
+      - name: Add dependency chart repos
+        run: |
+          helm repo add stable https://charts.helm.sh/stable
+          helm repo add plural https://pluralsh.github.io/plural-helm-charts
+          helm repo add capi https://pluralsh.github.io/capi-helm-charts
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add bitnami-archive https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+          helm repo add bitnami-pre-2022 https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+          helm repo add sentry https://sentry-kubernetes.github.io/charts
+          helm repo add jetstack https://charts.jetstack.io
+          helm repo add grafana https://grafana.github.io/helm-charts
+          helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"  
+          
+      ## This is required to consider the old Circle-CI Index and to stay compatible with all the old releases.
+      - name: Fetch current Chart Index 
+        run: |
+          git checkout origin/gh-pages index.yaml
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.4.1
+        with: 
+          config: "./.github/configs/cr.yaml"
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
