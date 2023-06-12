@@ -4,7 +4,7 @@ configVariables:
   capaEks: true
   capaEksAddRoles: false
   capaEksIam: false
-  capaLoglevel: false
+  capaLoglevel: 0
   eventBridgeInstanceState: false
   exprimental:
     alternativeGcStrategy: false
