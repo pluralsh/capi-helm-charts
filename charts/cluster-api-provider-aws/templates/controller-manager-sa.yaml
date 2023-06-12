@@ -11,7 +11,7 @@ metadata:
   {{ toYaml . | nindent 4 }}
   {{- end }}
   annotations:
-    eks.amazonaws.com/role-arn: ""
+    eks.amazonaws.com/role-arn: {{ .Values.configVariables.awsControllerIamRole }}
   {{- with .Values.serviceAccount.annotations }}
   {{- toYaml . | nindent 4 }}
   {{- end }}

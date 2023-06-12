@@ -1,6 +1,6 @@
 configVariables:
   autoControllerIdentityCreator: true
-  awsControllerIamRole: '""'
+  awsControllerIamRole: ''
   capaEks: true
   capaEksAddRoles: false
   capaEksIam: false
