@@ -1,0 +1,18 @@
+{{- if .Values.serviceAccount.create }}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "cluster-api-provider-aws.serviceAccountName" . }}
+  labels:
+    cluster.x-k8s.io/provider: infrastructure-aws
+    control-plane: controller-manager
+  {{- include "cluster-api-provider-aws.labels" . | nindent 4 }}
+  {{- with .Values.serviceAccount.labels }}
+  {{ toYaml . | nindent 4 }}
+  {{- end }}
+  annotations:
+    eks.amazonaws.com/role-arn: ""
+  {{- with .Values.serviceAccount.annotations }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+{{- end }}

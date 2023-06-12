@@ -1,0 +1,38 @@
+configVariables:
+  clusterTopology: false
+  exprimental:
+    kubeadmBootstrapFormatIgnition: false
+    lazyRestmapper: false
+controllerManager:
+  annotations: {}
+  labels: {}
+  manager:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      privileged: false
+      runAsGroup: 65532
+      runAsUser: 65532
+    image:
+      repository: registry.k8s.io/cluster-api/kubeadm-control-plane-controller
+      tag: v1.4.3
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits: {}
+      requests: {}
+  nodeSelector: {}
+  replicas: 1
+imagePullSecrets: []
+kubernetesClusterDomain: cluster.local
+serviceAccount:
+  annotations: {}
+  create: true
+  labels: {}
+  name: ""
+webhookService:
+  ports:
+  - port: 443
+    targetPort: webhook-server
+  type: ClusterIP

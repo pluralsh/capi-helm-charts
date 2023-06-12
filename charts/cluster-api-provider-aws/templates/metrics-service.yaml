@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "cluster-api-provider-aws.fullname" . }}-metrics-service
+  labels:
+    cluster.x-k8s.io/provider: infrastructure-aws
+  {{- include "cluster-api-provider-aws.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.metricsService.type }}
+  selector:
+    cluster.x-k8s.io/provider: infrastructure-aws
+  {{- include "cluster-api-provider-aws.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.metricsService.ports | toYaml | nindent 2 -}}

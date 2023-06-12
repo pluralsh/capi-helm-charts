@@ -1,0 +1,61 @@
+configVariables:
+  autoControllerIdentityCreator: true
+  awsControllerIamRole: '""'
+  capaEks: true
+  capaEksAddRoles: false
+  capaEksIam: false
+  capaLoglevel: false
+  eventBridgeInstanceState: false
+  exprimental:
+    alternativeGcStrategy: false
+    bootstrapFormatIgnition: false
+    eksFargate: false
+    externalResourceGc: false
+    machinePool: false
+  k8SCpLabel: node-role.kubernetes.io/control-plane
+controllerManager:
+  annotations: {}
+  labels: {}
+  manager:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      runAsGroup: 65532
+      runAsUser: 65532
+    env:
+      awsSharedCredentialsFile: /home/.aws/credentials
+    image:
+      repository: registry.k8s.io/cluster-api-aws/cluster-api-aws-controller
+      tag: v2.1.4
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits: {}
+      requests: {}
+  nodeSelector: {}
+  replicas: 1
+imagePullSecrets: []
+kubernetesClusterDomain: cluster.local
+managerBootstrapCredentials:
+  AWS_ACCESS_KEY_ID: ""
+  AWS_SECRET_ACCESS_KEY: ""
+  AWS_REGION: ""
+  AWS_SESSION_TOKEN: ""
+metricsService:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: metrics
+  type: ClusterIP
+serviceAccount:
+  annotations: {}
+  create: true
+  labels: {}
+  name: ""
+webhookService:
+  ports:
+    - port: 443
+      targetPort: webhook-server
+  type: ClusterIP
+bootstrapMode: true
