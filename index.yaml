@@ -45,6 +45,16 @@ entries:
   cluster-api-core:
   - apiVersion: v2
     appVersion: v1.4.3
+    created: "2023-06-13T09:59:06.754079194Z"
+    description: A Helm chart for Kubernetes
+    digest: a6d252ba7b6fff9c27df8d8a25bd1240430f7ac9fa5692877471aac2658e655b
+    name: cluster-api-core
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-core-0.1.2/cluster-api-core-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v1.4.3
     created: "2023-06-13T09:49:30.977774573Z"
     description: A Helm chart for Kubernetes
     digest: db190906cd095d6a20c72550f8ca4c27a28c2e9a1aae2cd00bc596345a590947
@@ -114,4 +124,4 @@ entries:
     urls:
     - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-aws-0.1.0/cluster-api-provider-aws-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-13T09:49:31.164559948Z"
+generated: "2023-06-13T09:59:06.754111695Z"
