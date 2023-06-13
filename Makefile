@@ -5,7 +5,7 @@ AWS_VERSION=v2.1.4
 
 core:
 	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${CORE_VERSION}/core-components.yaml
-	kustomize build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" >> core-components.yaml
+	kustomize build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-core/crds/provider-crd.yaml
 	cat core-components.yaml | helmify -generate-defaults -image-pull-secrets charts/cluster-api-core
 	rm core-components.yaml
 	yq -i ".appVersion=\"${CORE_VERSION}\"" charts/cluster-api-core/Chart.yaml
