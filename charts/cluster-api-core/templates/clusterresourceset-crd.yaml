@@ -6,6 +6,7 @@ metadata:
     cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/{{ include "cluster-api-core.fullname" . }}-serving-cert'
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
+    clusterctl.cluster.x-k8s.io: ""
     cluster.x-k8s.io/provider: cluster-api
   {{- include "cluster-api-core.labels" . | nindent 4 }}
 spec:

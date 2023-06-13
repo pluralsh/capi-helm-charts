@@ -5,6 +5,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
+    clusterctl.cluster.x-k8s.io: ""
     cluster.x-k8s.io/provider: cluster-api
   {{- include "cluster-api-core.labels" . | nindent 4 }}
 spec:
