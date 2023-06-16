@@ -1,0 +1,153 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: {{ include "cluster-api-provider-gcp.fullname" . }}-mutating-webhook-configuration
+  annotations:
+    cert-manager.io/inject-ca-from: {{ .Release.Namespace }}/{{ include "cluster-api-provider-gcp.fullname" . }}-serving-cert
+  labels:
+  {{- include "cluster-api-provider-gcp.labels" . | nindent 4 }}
+webhooks:
+- admissionReviewVersions:
+  - v1beta1
+  clientConfig:
+    service:
+      name: '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta1-gcpcluster
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: default.gcpcluster.infrastructure.cluster.x-k8s.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - gcpclusters
+  sideEffects: None
+- admissionReviewVersions:
+  - v1beta1
+  clientConfig:
+    service:
+      name: '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta1-gcpclustertemplate
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: default.gcpclustertemplate.infrastructure.cluster.x-k8s.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - gcpclustertemplates
+  sideEffects: None
+- admissionReviewVersions:
+  - v1beta1
+  clientConfig:
+    service:
+      name: '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta1-gcpmachine
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: default.gcpmachine.infrastructure.cluster.x-k8s.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - gcpmachines
+  sideEffects: None
+- admissionReviewVersions:
+  - v1beta1
+  clientConfig:
+    service:
+      name: '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta1-gcpmachinetemplate
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: default.gcpmachinetemplate.infrastructure.cluster.x-k8s.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - gcpmachinetemplates
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta1-gcpmanagedcluster
+  failurePolicy: Fail
+  name: mgcpmanagedcluster.kb.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - gcpmanagedclusters
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta1-gcpmanagedcontrolplane
+  failurePolicy: Fail
+  name: mgcpmanagedcontrolplane.kb.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - gcpmanagedcontrolplanes
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta1-gcpmanagedmachinepool
+  failurePolicy: Fail
+  name: mgcpmanagedmachinepool.kb.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - gcpmanagedmachinepools
+  sideEffects: None

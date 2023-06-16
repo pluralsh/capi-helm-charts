@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "cluster-api-provider-gcp.fullname" . }}-serving-cert
+  labels:
+  {{- include "cluster-api-provider-gcp.labels" . | nindent 4 }}
+spec:
+  dnsNames:
+  - '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service.{{ .Release.Namespace }}.svc'
+  - '{{ include "cluster-api-provider-gcp.fullname" . }}-webhook-service.{{ .Release.Namespace }}.svc.{{ .Values.kubernetesClusterDomain }}'
+  issuerRef:
+    kind: Issuer
+    name: '{{ include "cluster-api-provider-gcp.fullname" . }}-selfsigned-issuer'
+  secretName: capg-webhook-service-cert

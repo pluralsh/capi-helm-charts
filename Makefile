@@ -3,6 +3,7 @@ CONTROL_PLANE_VERSION=v1.4.3
 BOOTSTRAP_VERSION=v1.4.3
 AWS_VERSION=v2.1.4
 AZURE_VERSION=v1.9.2
+GCP_VERSION=v1.3.1
 
 core:
 	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${CORE_VERSION}/core-components.yaml
@@ -63,3 +64,17 @@ azure: # TODO: Looking at the raw yaml only 1 sa is used so the next isn't relev
 
 # This removes the awsB64EncodedCredentials from the values.yaml since it is being set by managerBootstrapCredentials.credentials instead
 	yq -i "del(.configVariables.azureClientIdB64) | del(.configVariables.azureClientSecretB64) | del(.configVariables.azureSubscriptionIdB64) | del(.configVariables.azureTenantIdB64)" charts/cluster-api-provider-azure/values.yaml
+
+gcp:
+	wget https://github.com/kubernetes-sigs/cluster-api-provider-gcp/releases/download/${GCP_VERSION}/infrastructure-components.yaml
+# This rewrites the data to stringData in the secret
+	yq 'select(.kind == "Secret") | .data."credentials.json" = ""' infrastructure-components.yaml > tmp.yaml
+# This removes the Secret from the yaml
+	yq 'del( select(.kind == "Secret"))' infrastructure-components.yaml > tmp2.yaml
+
+# This combines the yaml files back together
+	yq eval-all tmp.yaml tmp2.yaml > infrastructure-components.yaml
+
+	cat infrastructure-components.yaml | helmify -generate-defaults -image-pull-secrets charts/cluster-api-provider-gcp
+	rm infrastructure-components.yaml tmp.yaml tmp2.yaml
+	yq -i ".appVersion=\"${GCP_VERSION}\"" charts/cluster-api-provider-gcp/Chart.yaml

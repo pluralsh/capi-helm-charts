@@ -1,0 +1,33 @@
+configVariables:
+  capgLoglevel: 0
+  exprimental:
+    capgGke: false
+controllerManager:
+  annotations: {}
+  labels: {}
+  manager:
+    env:
+      googleApplicationCredentials: /home/.gcp/credentials.json
+    image:
+      repository: registry.k8s.io/cluster-api-gcp/cluster-api-gcp-controller
+      tag: v1.3.1
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits: {}
+      requests: {}
+  nodeSelector: {}
+  replicas: 1
+imagePullSecrets: []
+kubernetesClusterDomain: cluster.local
+managerBootstrapCredentials:
+  credentialsJson: ""
+serviceAccount:
+  annotations: {}
+  create: true
+  labels: {}
+  name: ""
+webhookService:
+  ports:
+  - port: 443
+    targetPort: webhook-server
+  type: ClusterIP
