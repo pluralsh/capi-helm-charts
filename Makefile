@@ -5,6 +5,8 @@ AWS_VERSION=v2.1.4
 AZURE_VERSION=v1.9.2
 GCP_VERSION=v1.3.1
 
+all: core control-plane bootstrap aws azure gcp
+
 core:
 	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${CORE_VERSION}/core-components.yaml
 	kustomize build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-core/crds/provider-crd.yaml
