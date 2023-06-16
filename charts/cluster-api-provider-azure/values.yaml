@@ -1,0 +1,71 @@
+configVariables:
+  exprimental:
+    aksResourceHealth: false
+    edgezone: false
+    machinePool: false
+controllerManager:
+  annotations: {}
+  labels: {}
+  manager:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      runAsGroup: 65532
+      runAsUser: 65532
+    image:
+      repository: registry.k8s.io/cluster-api-azure/cluster-api-azure-controller
+      tag: v1.9.2
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits: {}
+      requests: {}
+  nodeSelector: {}
+  replicas: 1
+imagePullSecrets: []
+kubernetesClusterDomain: cluster.local
+managerBootstrapCredentials:
+  clientId: ""
+  clientSecret: ""
+  subscriptionId: ""
+  tenantId: ""
+nmi:
+  annotations: {}
+  labels: {}
+  nmi:
+    containerSecurityContext:
+      capabilities:
+        add:
+          - DAC_READ_SEARCH
+          - NET_ADMIN
+          - NET_RAW
+        drop:
+          - ALL
+      runAsUser: 0
+    env:
+      forcenamespaced: "true"
+      logLevel: DEBUG
+    image:
+      repository: mcr.microsoft.com/oss/azure/aad-pod-identity/nmi
+      tag: v1.8.14
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        cpu: 200m
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 256Mi
+  nodeSelector:
+    kubernetes.io/os: linux
+serviceAccount:
+  annotations: {}
+  create: true
+  labels: {}
+  name: ""
+webhookService:
+  ports:
+    - port: 443
+      targetPort: webhook-server
+  type: ClusterIP

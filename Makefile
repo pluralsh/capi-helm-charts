@@ -2,6 +2,7 @@ CORE_VERSION=v1.4.3
 CONTROL_PLANE_VERSION=v1.4.3
 BOOTSTRAP_VERSION=v1.4.3
 AWS_VERSION=v2.1.4
+AZURE_VERSION=v1.9.2
 
 core:
 	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${CORE_VERSION}/core-components.yaml
@@ -45,3 +46,20 @@ aws:
 	rm charts/cluster-api-provider-aws/templates/manager-bootstrap-credentials.yaml
 # Add proper credentials input and the bootstrapMode toogle to easily nullify the credentials. Also set `awsControllerIamRole` to proper empty string
 	yq -i ".configVariables.awsControllerIamRole=\"\" | .bootstrapMode="true" | del(.managerBootstrapCredentials.credentials) | .managerBootstrapCredentials.AWS_ACCESS_KEY_ID=\"\" | .managerBootstrapCredentials.AWS_SECRET_ACCESS_KEY=\"\" | .managerBootstrapCredentials.AWS_REGION=\"\" | .managerBootstrapCredentials.AWS_SESSION_TOKEN=\"\"" charts/cluster-api-provider-aws/values.yaml
+
+azure: # TODO: Looking at the raw yaml only 1 sa is used so the next isn't relevant, but further checking should be done. this is deploying multiple things so we need to improve the helmify fork to avoid clashes with SA names.
+	wget https://github.com/kubernetes-sigs/cluster-api-provider-azure/releases/download/${AZURE_VERSION}/infrastructure-components.yaml
+# This rewrites the data to stringData in the secret
+	yq 'select(.kind == "Secret") | .stringData += .data | del(.data)' infrastructure-components.yaml > tmp.yaml
+# This removes the Secret from the yaml
+	yq 'del( select(.kind == "Secret"))' infrastructure-components.yaml > tmp2.yaml
+
+# This combines the yaml files back together
+	yq eval-all tmp.yaml tmp2.yaml > infrastructure-components.yaml
+
+	cat infrastructure-components.yaml | helmify -generate-defaults -image-pull-secrets charts/cluster-api-provider-azure
+	rm infrastructure-components.yaml tmp.yaml tmp2.yaml
+	yq -i ".appVersion=\"${AZURE_VERSION}\"" charts/cluster-api-provider-azure/Chart.yaml
+
+# This removes the awsB64EncodedCredentials from the values.yaml since it is being set by managerBootstrapCredentials.credentials instead
+	yq -i "del(.configVariables.azureClientIdB64) | del(.configVariables.azureClientSecretB64) | del(.configVariables.azureSubscriptionIdB64) | del(.configVariables.azureTenantIdB64)" charts/cluster-api-provider-azure/values.yaml

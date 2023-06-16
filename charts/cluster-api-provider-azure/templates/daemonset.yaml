@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-nmi
+  labels:
+    cluster.x-k8s.io/provider: infrastructure-azure
+    component: nmi
+    k8s-app: aad-pod-id
+    tier: node
+  {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      cluster.x-k8s.io/provider: infrastructure-azure
+      component: nmi
+      tier: node
+    {{- include "cluster-api-provider-azure.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        cluster.x-k8s.io/provider: infrastructure-azure
+        component: nmi
+        tier: node
+      {{- include "cluster-api-provider-azure.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - args:
+        - --node=$(NODE_NAME)
+        - --operation-mode=managed
+        - --forceNamespaced
+        - --http-probe-port=8085
+        env:
+        - name: FORCENAMESPACED
+          value: {{ quote .Values.nmi.nmi.env.forcenamespaced }}
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: LOG_LEVEL
+          value: {{ quote .Values.nmi.nmi.env.logLevel }}
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.nmi.nmi.image.repository }}:{{ .Values.nmi.nmi.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.nmi.nmi.imagePullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8085
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        name: nmi
+        resources: {{- toYaml .Values.nmi.nmi.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.nmi.nmi.containerSecurityContext | nindent 10 }}
+        volumeMounts:
+        - mountPath: /run/xtables.lock
+          name: iptableslock
+        - mountPath: /etc/default
+          name: default-path
+          readOnly: true
+        - mountPath: /etc/default/kubelet
+          name: kubelet-config
+          readOnly: true
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
+      nodeSelector: {{- toYaml .Values.nmi.nodeSelector | nindent 8 }}
+      serviceAccountName: {{ include "cluster-api-provider-azure.serviceAccountName" . }}
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
+      volumes:
+      - hostPath:
+          path: /run/xtables.lock
+          type: FileOrCreate
+        name: iptableslock
+      - hostPath:
+          path: /etc/default
+          type: DirectoryOrCreate
+        name: default-path
+      - hostPath:
+          path: /etc/default/kubelet
+          type: FileOrCreate
+        name: kubelet-config
