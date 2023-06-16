@@ -23,6 +23,8 @@ controllerManager:
       requests: {}
   nodeSelector: {}
   replicas: 1
+crds:
+  create: true
 imagePullSecrets: []
 kubernetesClusterDomain: cluster.local
 managerBootstrapCredentials:
