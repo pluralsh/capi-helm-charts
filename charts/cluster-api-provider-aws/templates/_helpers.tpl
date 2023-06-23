@@ -81,6 +81,6 @@ Return the b64 encoded aws credentials file depending on if bootstrap credential
 {{- if .Values.bootstrapMode -}}
 {{- include "cluster-api-provider-aws.awsCredentialsFile" . | b64enc | quote -}}
 {{- else -}}
-{{ print "\"\"" | b64enc  }}
+{{ print "Cg=="  }}
 {{- end -}}
 {{- end -}}
