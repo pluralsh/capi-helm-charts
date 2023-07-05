@@ -25,6 +25,14 @@
         "major"
       ],
       "enabled": false
+    },
+    {
+      "description": "Group Update Providers",
+      "matchManagers": [
+        "regex"
+      ],
+      "groupName": "providers",
+      "additionalBranchPrefix": ""
     }
   ],
   "separateMinorPatch": true,
