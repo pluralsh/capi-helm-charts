@@ -6,3 +6,4 @@ version: 0.1.2
 appVersion: "v1.4.3"
 maintainers:
   - name: Plural
+    url: https://www.plural.sh
