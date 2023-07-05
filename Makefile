@@ -35,7 +35,7 @@ $(YQ): $(LOCALBIN)
 all: kustomize helmify yq core control-plane bootstrap docker aws azure gcp
 
 core: kustomize helmify yq
-	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${CORE_VERSION}/core-components.yaml
+	curl -O https://github.com/kubernetes-sigs/cluster-api/releases/download/${CORE_VERSION}/core-components.yaml
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-core/crds/provider-crd.yaml
 	cat core-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-core
 	rm core-components.yaml
@@ -46,7 +46,7 @@ core: kustomize helmify yq
 	fi
 
 control-plane: helmify yq
-	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${CONTROL_PLANE_VERSION}/control-plane-components.yaml
+	curl -O https://github.com/kubernetes-sigs/cluster-api/releases/download/${CONTROL_PLANE_VERSION}/control-plane-components.yaml
 	cat control-plane-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-control-plane
 	rm control-plane-components.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-control-plane/Chart.yaml) != "${CONTROL_PLANE_VERSION}" ]; then \
@@ -56,7 +56,7 @@ control-plane: helmify yq
 	fi
 
 bootstrap: helmify yq
-	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${BOOTSTRAP_VERSION}/bootstrap-components.yaml
+	curl -O https://github.com/kubernetes-sigs/cluster-api/releases/download/${BOOTSTRAP_VERSION}/bootstrap-components.yaml
 	cat bootstrap-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-bootstrap
 	rm bootstrap-components.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-bootstrap/Chart.yaml) != "${BOOTSTRAP_VERSION}" ]; then \
@@ -66,7 +66,7 @@ bootstrap: helmify yq
 	fi
 
 docker: helmify yq
-	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${DOCKER_VERSION}/infrastructure-components-development.yaml
+	curl -O https://github.com/kubernetes-sigs/cluster-api/releases/download/${DOCKER_VERSION}/infrastructure-components-development.yaml
 	cat infrastructure-components-development.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-provider-docker
 	rm infrastructure-components-development.yaml
 	$(YQ) -i ".configVariables.capdDockerHost=\"\"" charts/cluster-api-provider-docker/values.yaml
@@ -77,7 +77,7 @@ docker: helmify yq
 	fi
 
 aws: helmify yq
-	wget https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/${AWS_VERSION}/infrastructure-components.yaml
+	curl -O https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/${AWS_VERSION}/infrastructure-components.yaml
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .stringData += .data | del(.data)' infrastructure-components.yaml > tmp.yaml
 
@@ -106,7 +106,7 @@ aws: helmify yq
 	fi
 
 azure: helmify yq # TODO: Looking at the raw yaml only 1 sa is used so the next isn't relevant, but further checking should be done. this is deploying multiple things so we need to improve the helmify fork to avoid clashes with SA names.
-	wget https://github.com/kubernetes-sigs/cluster-api-provider-azure/releases/download/${AZURE_VERSION}/infrastructure-components.yaml
+	curl -O https://github.com/kubernetes-sigs/cluster-api-provider-azure/releases/download/${AZURE_VERSION}/infrastructure-components.yaml
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .stringData += .data | del(.data)' infrastructure-components.yaml > tmp.yaml
 # This removes the Secret from the yaml
@@ -128,7 +128,7 @@ azure: helmify yq # TODO: Looking at the raw yaml only 1 sa is used so the next 
 	fi
 
 gcp: helmify yq
-	wget https://github.com/kubernetes-sigs/cluster-api-provider-gcp/releases/download/${GCP_VERSION}/infrastructure-components.yaml
+	curl -O https://github.com/kubernetes-sigs/cluster-api-provider-gcp/releases/download/${GCP_VERSION}/infrastructure-components.yaml
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .data."credentials.json" = ""' infrastructure-components.yaml > tmp.yaml
 # This removes the Secret from the yaml
