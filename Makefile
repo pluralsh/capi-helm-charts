@@ -45,8 +45,9 @@ core: kustomize helmify yq
 		$(YQ) -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' charts/cluster-api-core/Chart.yaml; \
 	fi
 
-control-plane: helmify yq
+control-plane: kustomize helmify yq
 	curl -OL https://github.com/kubernetes-sigs/cluster-api/releases/download/${CONTROL_PLANE_VERSION}/control-plane-components.yaml
+	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-control-plane/crds/provider-crd.yaml
 	cat control-plane-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-control-plane
 	rm control-plane-components.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-control-plane/Chart.yaml) != "${CONTROL_PLANE_VERSION}" ]; then \
@@ -55,8 +56,9 @@ control-plane: helmify yq
 		$(YQ) -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' charts/cluster-api-control-plane/Chart.yaml; \
 	fi
 
-bootstrap: helmify yq
+bootstrap: kustomize helmify yq
 	curl -OL https://github.com/kubernetes-sigs/cluster-api/releases/download/${BOOTSTRAP_VERSION}/bootstrap-components.yaml
+	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-bootstrap/crds/provider-crd.yaml
 	cat bootstrap-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-bootstrap
 	rm bootstrap-components.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-bootstrap/Chart.yaml) != "${BOOTSTRAP_VERSION}" ]; then \
@@ -65,8 +67,9 @@ bootstrap: helmify yq
 		$(YQ) -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' charts/cluster-api-bootstrap/Chart.yaml; \
 	fi
 
-docker: helmify yq
+docker: kustomize helmify yq
 	curl -OL https://github.com/kubernetes-sigs/cluster-api/releases/download/${DOCKER_VERSION}/infrastructure-components-development.yaml
+	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-provider-docker/crds/provider-crd.yaml
 	cat infrastructure-components-development.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-provider-docker
 	rm infrastructure-components-development.yaml
 	$(YQ) -i ".configVariables.capdDockerHost=\"\"" charts/cluster-api-provider-docker/values.yaml
@@ -76,8 +79,9 @@ docker: helmify yq
 		$(YQ) -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' charts/cluster-api-provider-docker/Chart.yaml; \
 	fi
 
-aws: helmify yq
+aws: kustomize helmify yq
 	curl -OL https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/${AWS_VERSION}/infrastructure-components.yaml
+	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts//cluster-api-provider-aws/crds/provider-crd.yaml
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .stringData += .data | del(.data)' infrastructure-components.yaml > tmp.yaml
 
@@ -105,8 +109,9 @@ aws: helmify yq
 		$(YQ) -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' charts/cluster-api-provider-aws/Chart.yaml; \
 	fi
 
-azure: helmify yq # TODO: Looking at the raw yaml only 1 sa is used so the next isn't relevant, but further checking should be done. this is deploying multiple things so we need to improve the helmify fork to avoid clashes with SA names.
+azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so the next isn't relevant, but further checking should be done. this is deploying multiple things so we need to improve the helmify fork to avoid clashes with SA names.
 	curl -OL https://github.com/kubernetes-sigs/cluster-api-provider-azure/releases/download/${AZURE_VERSION}/infrastructure-components.yaml
+	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-provider-azure/crds/provider-crd.yaml
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .stringData += .data | del(.data)' infrastructure-components.yaml > tmp.yaml
 # This removes the Secret from the yaml
@@ -127,8 +132,9 @@ azure: helmify yq # TODO: Looking at the raw yaml only 1 sa is used so the next 
 		$(YQ) -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' charts/cluster-api-provider-azure/Chart.yaml; \
 	fi
 
-gcp: helmify yq
+gcp: kustomize helmify yq
 	curl -OL https://github.com/kubernetes-sigs/cluster-api-provider-gcp/releases/download/${GCP_VERSION}/infrastructure-components.yaml
+	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-provider-gcp/crds/provider-crd.yaml
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .data."credentials.json" = ""' infrastructure-components.yaml > tmp.yaml
 # This removes the Secret from the yaml
