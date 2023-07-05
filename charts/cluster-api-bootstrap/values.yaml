@@ -18,7 +18,7 @@ controllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api/kubeadm-bootstrap-controller
-      tag: v1.4.3
+      tag: v1.4.4
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
