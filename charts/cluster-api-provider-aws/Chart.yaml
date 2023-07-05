@@ -4,3 +4,6 @@ description: A Helm chart for deploying the Cluster API Provider AWS
 type: application
 version: 0.1.6
 appVersion: "v2.1.4"
+maintainers:
+  - name: Plural
+    url: https://www.plural.sh
