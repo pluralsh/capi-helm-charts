@@ -3,7 +3,7 @@ CONTROL_PLANE_VERSION=v1.4.3 # renovate: datasource=github-releases depName=kube
 BOOTSTRAP_VERSION=v1.4.3 # renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 DOCKER_VERSION=v1.4.3 # renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 AWS_VERSION=v2.1.4
-AZURE_VERSION=v1.9.2
+AZURE_VERSION=v1.9.4
 GCP_VERSION=v1.3.1
 
 all: core control-plane bootstrap docker aws azure gcp
