@@ -25,6 +25,19 @@
         "major"
       ],
       "enabled": false
+    },
+    {
+      "matchManagers": [
+        "regex"
+      ],
+      "postUpgradeTasks": {
+        "commands": [
+          "make all"
+        ],
+        "fileFilters": [
+          "**/*"
+        ]
+      }
     }
   ],
   "separateMinorPatch": true,
