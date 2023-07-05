@@ -1,7 +1,7 @@
-CORE_VERSION=v1.4.3
-CONTROL_PLANE_VERSION=v1.4.3
-BOOTSTRAP_VERSION=v1.4.3
-DOCKER_VERSION=v1.4.3
+CORE_VERSION=v1.4.3 # renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+CONTROL_PLANE_VERSION=v1.4.3 # renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+BOOTSTRAP_VERSION=v1.4.3 # renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+DOCKER_VERSION=v1.4.3 # renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 AWS_VERSION=v2.1.4
 AZURE_VERSION=v1.9.2
 GCP_VERSION=v1.3.1
