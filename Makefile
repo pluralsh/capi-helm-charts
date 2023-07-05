@@ -1,11 +1,12 @@
 CORE_VERSION=v1.4.3
 CONTROL_PLANE_VERSION=v1.4.3
 BOOTSTRAP_VERSION=v1.4.3
+DOCKER_VERSION=v1.4.3
 AWS_VERSION=v2.1.4
 AZURE_VERSION=v1.9.2
 GCP_VERSION=v1.3.1
 
-all: core control-plane bootstrap aws azure gcp
+all: core control-plane bootstrap docker aws azure gcp
 
 core:
 	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${CORE_VERSION}/core-components.yaml
@@ -25,6 +26,13 @@ bootstrap:
 	cat bootstrap-components.yaml | helmify -generate-defaults -image-pull-secrets charts/cluster-api-bootstrap
 	rm bootstrap-components.yaml
 	yq -i ".appVersion=\"${BOOTSTRAP_VERSION}\"" charts/cluster-api-bootstrap/Chart.yaml
+
+docker:
+	wget https://github.com/kubernetes-sigs/cluster-api/releases/download/${DOCKER_VERSION}/infrastructure-components-development.yaml
+	cat infrastructure-components-development.yaml | helmify -generate-defaults -image-pull-secrets charts/cluster-api-provider-docker
+	rm infrastructure-components-development.yaml
+	yq -i ".appVersion=\"${DOCKER_VERSION}\"" charts/cluster-api-provider-docker/Chart.yaml
+	yq -i ".configVariables.capdDockerHost=\"\"" charts/cluster-api-provider-docker/values.yaml
 
 aws:
 	wget https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/${AWS_VERSION}/infrastructure-components.yaml

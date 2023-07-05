@@ -1,0 +1,34 @@
+configVariables:
+  capdDockerHost: ''
+  clusterTopology: false
+  exprimental:
+    machinePool: false
+controllerManager:
+  annotations: {}
+  labels: {}
+  manager:
+    containerSecurityContext:
+      privileged: true
+    image:
+      repository: gcr.io/k8s-staging-cluster-api/capd-manager
+      tag: v1.4.3
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits: {}
+      requests: {}
+  nodeSelector: {}
+  replicas: 1
+crds:
+  create: true
+imagePullSecrets: []
+kubernetesClusterDomain: cluster.local
+serviceAccount:
+  annotations: {}
+  create: true
+  labels: {}
+  name: ""
+webhookService:
+  ports:
+    - port: 443
+      targetPort: webhook-server
+  type: ClusterIP
