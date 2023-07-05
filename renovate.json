@@ -38,6 +38,7 @@
           "**/*"
         ]
       },
+      "dependencyDashboardApproval": false,
       "automerge": true,
       "platformAutomerge": true
     }
