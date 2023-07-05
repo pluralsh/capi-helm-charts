@@ -37,7 +37,9 @@
         "fileFilters": [
           "**/*"
         ]
-      }
+      },
+      "automerge": true,
+      "platformAutomerge": true
     }
   ],
   "separateMinorPatch": true,
