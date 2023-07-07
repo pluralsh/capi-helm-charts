@@ -45,7 +45,7 @@ spec:
       containers:
       - args:
         - --leader-elect
-        - --feature-gates=EKS={{ .Values.configVariables.capaEks }},EKSEnableIAM={{ .Values.configVariables.capaEksIam }},EKSAllowAddRoles={{ .Values.configVariables.capaEksAddRoles }},EKSFargate={{ .Values.configVariables.exprimental.eksFargate }},MachinePool={{ .Values.configVariables.exprimental.machinePool }},EventBridgeInstanceState={{ .Values.configVariables.eventBridgeInstanceState }},AutoControllerIdentityCreator={{ .Values.configVariables.autoControllerIdentityCreator }},BootstrapFormatIgnition={{ .Values.configVariables.exprimental.bootstrapFormatIgnition }},ExternalResourceGC={{ .Values.configVariables.exprimental.externalResourceGc }},AlternativeGCStrategy={{ .Values.configVariables.exprimental.alternativeGcStrategy }}
+        - --feature-gates=EKS={{ .Values.configVariables.capaEks }},EKSEnableIAM={{ .Values.configVariables.capaEksIam }},EKSAllowAddRoles={{ .Values.configVariables.capaEksAddRoles }},EKSFargate={{ .Values.configVariables.exprimental.eksFargate }},MachinePool={{ .Values.configVariables.exprimental.machinePool }},EventBridgeInstanceState={{ .Values.configVariables.eventBridgeInstanceState }},AutoControllerIdentityCreator={{ .Values.configVariables.autoControllerIdentityCreator }},BootstrapFormatIgnition={{ .Values.configVariables.exprimental.bootstrapFormatIgnition }},ExternalResourceGC={{ .Values.configVariables.exprimental.externalResourceGc }},AlternativeGCStrategy={{ .Values.configVariables.exprimental.alternativeGcStrategy }},TagUnmanagedNetworkResources={{ .Values.configVariables.tagUnmanagedNetworkResources }}
         - --v={{ .Values.configVariables.capaLoglevel }}
         - --metrics-bind-addr=0.0.0.0:8080
         env:
