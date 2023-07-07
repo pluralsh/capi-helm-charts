@@ -13,6 +13,7 @@ configVariables:
     externalResourceGc: false
     machinePool: false
   k8SCpLabel: node-role.kubernetes.io/control-plane
+  tagUnmanagedNetworkResources: true
 controllerManager:
   annotations: {}
   labels: {}
@@ -28,7 +29,7 @@ controllerManager:
       awsSharedCredentialsFile: /home/.aws/credentials
     image:
       repository: registry.k8s.io/cluster-api-aws/cluster-api-aws-controller
-      tag: v2.1.4
+      tag: v2.2.0
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
