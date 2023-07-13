@@ -40,7 +40,7 @@ spec:
             description: AzureManagedClusterSpec defines the desired state of AzureManagedCluster.
             properties:
               controlPlaneEndpoint:
-                description: ControlPlaneEndpoint represents the endpoint used to communicate with the control plane.
+                description: ControlPlaneEndpoint represents the endpoint used to communicate with the control plane. Immutable, populated by the AKS API at create.
                 properties:
                   host:
                     description: The hostname on which the API server is serving.
