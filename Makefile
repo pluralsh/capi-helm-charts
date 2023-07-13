@@ -3,7 +3,7 @@ CONTROL_PLANE_VERSION=v1.4.4# renovate: datasource=github-releases depName=kuber
 BOOTSTRAP_VERSION=v1.4.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 DOCKER_VERSION=v1.4.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 AWS_VERSION=v2.2.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-aws
-AZURE_VERSION=v1.9.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
+AZURE_VERSION=v1.9.5# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
 GCP_VERSION=v1.3.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
 
 
