@@ -105,6 +105,19 @@ entries:
     version: 0.1.0
   cluster-api-provider-aws:
   - apiVersion: v2
+    appVersion: v2.2.1
+    created: "2023-07-20T16:33:42.096065412Z"
+    description: A Helm chart for deploying the Cluster API Provider AWS
+    digest: fa9045058ce3b1999e0f4bf47517ed3d90a633e1f3e4965c18c61b874ff692ae
+    maintainers:
+    - name: Plural
+      url: https://www.plural.sh
+    name: cluster-api-provider-aws
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-aws-0.1.8/cluster-api-provider-aws-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
     appVersion: v2.2.0
     created: "2023-07-07T21:35:14.296582572Z"
     description: A Helm chart for deploying the Cluster API Provider AWS
@@ -276,4 +289,4 @@ entries:
     urls:
     - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-gcp-0.1.0/cluster-api-provider-gcp-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-13T03:15:43.463070834Z"
+generated: "2023-07-20T16:33:42.096279612Z"
