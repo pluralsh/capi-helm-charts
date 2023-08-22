@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   name: gcpmanagedcontrolplanes.infrastructure.cluster.x-k8s.io
   annotations:
-    controller-gen.kubebuilder.io/version: v0.8.0
+    controller-gen.kubebuilder.io/version: v0.11.3
   labels:
     clusterctl.cluster.x-k8s.io: ""
     cluster.x-k8s.io/provider: infrastructure-gcp
@@ -94,7 +94,6 @@ spec:
                 - stable
                 type: string
             required:
-            - enableAutopilot
             - location
             - project
             type: object
@@ -134,6 +133,9 @@ spec:
               currentVersion:
                 description: CurrentVersion shows the current version of the GKE control plane.
                 type: string
+              initialized:
+                description: Initialized is true when the control plane is available for initial contact. This may occur before the control plane is fully ready.
+                type: boolean
               ready:
                 default: false
                 description: Ready denotes that the GCPManagedControlPlane API Server is ready to receive requests.
