@@ -6,11 +6,19 @@ controllerManager:
   annotations: {}
   labels: {}
   manager:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      privileged: false
+      runAsGroup: 65532
+      runAsUser: 65532
     env:
       googleApplicationCredentials: /home/.gcp/credentials.json
     image:
       repository: registry.k8s.io/cluster-api-gcp/cluster-api-gcp-controller
-      tag: v1.3.1
+      tag: v1.4.0
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
