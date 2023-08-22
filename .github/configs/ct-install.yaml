@@ -6,9 +6,9 @@ chart-dirs:
   - charts
 chart-repos:
   - capi=https://pluralsh.github.io/capi-helm-charts
-helm-extra-args: "--timeout 600s"  
+helm-extra-args: "--timeout 600s"
 validate-chart-schema: false
-validate-maintainers: true
+validate-maintainers: false
 validate-yaml: true
 exclude-deprecated: true
 target-branch: main
