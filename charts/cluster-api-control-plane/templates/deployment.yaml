@@ -31,7 +31,7 @@ spec:
       - args:
         - --leader-elect
         - --metrics-bind-addr=localhost:8080
-        - --feature-gates=ClusterTopology={{ .Values.configVariables.clusterTopology }},KubeadmBootstrapFormatIgnition={{ .Values.configVariables.exprimental.kubeadmBootstrapFormatIgnition }},LazyRestmapper={{ .Values.configVariables.exprimental.lazyRestmapper }}
+        - --feature-gates=ClusterTopology={{ .Values.configVariables.clusterTopology }},KubeadmBootstrapFormatIgnition={{ .Values.configVariables.exprimental.kubeadmBootstrapFormatIgnition }}
         command:
         - /manager
         env:

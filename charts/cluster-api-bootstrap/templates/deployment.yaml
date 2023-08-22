@@ -31,7 +31,7 @@ spec:
       - args:
         - --leader-elect
         - --metrics-bind-addr=localhost:8080
-        - --feature-gates=MachinePool={{ .Values.configVariables.exprimental.machinePool }},KubeadmBootstrapFormatIgnition={{ .Values.configVariables.exprimental.kubeadmBootstrapFormatIgnition }},LazyRestmapper={{ .Values.configVariables.exprimental.lazyRestmapper }}
+        - --feature-gates=MachinePool={{ .Values.configVariables.exprimental.machinePool }},KubeadmBootstrapFormatIgnition={{ .Values.configVariables.exprimental.kubeadmBootstrapFormatIgnition }}
         - --bootstrap-token-ttl={{ .Values.configVariables.kubeadmBootstrapTokenTtl }}
         command:
         - /manager
