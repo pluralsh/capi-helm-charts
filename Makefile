@@ -149,7 +149,7 @@ gcp: kustomize helmify yq
 	# Delete the secret file since we are managing that ourselves
 	rm charts/cluster-api-provider-gcp/templates/manager-bootstrap-credentials.yaml
 	# Add the bootstrapMode toggle to easily nullify the credentials.
-	$(YQ) -i ".bootstrapMode=false" charts/cluster-api-provider-gcp/values.yaml
+	$(YQ) -i ".bootstrapMode=true" charts/cluster-api-provider-gcp/values.yaml
 
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-provider-gcp/Chart.yaml) != "${GCP_VERSION}" ]; then \
 		echo "Updating GCP appVersion and chart version"; \

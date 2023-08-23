@@ -66,8 +66,8 @@ Return the gcp credentials JSON depending on if bootstrap credentials should be 
 */}}
 {{- define "cluster-api-provider-gcp.gcpCredentialsValue" -}}
 {{- if .Values.bootstrapMode -}}
-{{- print .Values.managerBootstrapCredentials.credentialsJson -}}
+{{- print .Values.managerBootstrapCredentials.credentialsJson | b64enc | quote -}}
 {{- else -}}
-{{ print "" }}
+{{ print "Cg==" }}
 {{- end -}}
 {{- end -}}
