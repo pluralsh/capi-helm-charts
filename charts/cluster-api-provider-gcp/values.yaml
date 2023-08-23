@@ -10,7 +10,7 @@ controllerManager:
       allowPrivilegeEscalation: false
       capabilities:
         drop:
-        - ALL
+          - ALL
       privileged: false
       runAsGroup: 65532
       runAsUser: 65532
@@ -38,6 +38,7 @@ serviceAccount:
   name: ""
 webhookService:
   ports:
-  - port: 443
-    targetPort: webhook-server
+    - port: 443
+      targetPort: webhook-server
   type: ClusterIP
+bootstrapMode: true
