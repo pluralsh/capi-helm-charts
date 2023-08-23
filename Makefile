@@ -6,7 +6,6 @@ AWS_VERSION=v2.2.1# renovate: datasource=github-releases depName=kubernetes-sigs
 AZURE_VERSION=v1.10.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
 GCP_VERSION=v1.4.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
 
-
 ## Location to install dependencies to
 LOCALBIN ?= $(shell pwd)/bin
 $(LOCALBIN):
@@ -16,6 +15,7 @@ $(LOCALBIN):
 KUSTOMIZE ?= $(LOCALBIN)/kustomize
 HELMIFY ?= $(LOCALBIN)/helmify
 YQ ?= $(LOCALBIN)/yq
+SED ?= $(shell which sed)
 
 .PHONY: kustomize
 kustomize: $(KUSTOMIZE)
@@ -150,6 +150,8 @@ gcp: kustomize helmify yq
 	rm charts/cluster-api-provider-gcp/templates/manager-bootstrap-credentials.yaml
 	# Add the bootstrapMode toggle to easily nullify the credentials.
 	$(YQ) -i ".bootstrapMode=true" charts/cluster-api-provider-gcp/values.yaml
+	# Update the GOOGLE_APPLICATION_CREDENTIALS env var in the deployment to rely on bootstrapMode
+	$(SED) -i '/name: GOOGLE_APPLICATION_CREDENTIALS/!b; n; s/value:.*/value: {{ include "cluster-api-provider-gcp.gcpCredentialsEnv" . }}/g' charts/cluster-api-provider-gcp/templates/deployment.yaml
 
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-provider-gcp/Chart.yaml) != "${GCP_VERSION}" ]; then \
 		echo "Updating GCP appVersion and chart version"; \

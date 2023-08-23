@@ -68,6 +68,17 @@ Return the gcp credentials JSON depending on if bootstrap credentials should be 
 {{- if .Values.bootstrapMode -}}
 {{- print .Values.managerBootstrapCredentials.credentialsJson | b64enc | quote -}}
 {{- else -}}
-{{ print "Cg==" }}
+{{- print "Cg==" -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Return the gcp credentials JSON depending on if bootstrap credentials should be used
+*/}}
+{{- define "cluster-api-provider-gcp.gcpCredentialsEnv" -}}
+{{- if .Values.bootstrapMode -}}
+{{- print .Values.controllerManager.manager.env.googleApplicationCredentials | quote -}}
+{{- else -}}
+{{- print "" -}}
 {{- end -}}
 {{- end -}}

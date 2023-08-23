@@ -37,7 +37,7 @@ spec:
         - --v={{ .Values.configVariables.capgLoglevel }}
         env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: {{ quote .Values.controllerManager.manager.env.googleApplicationCredentials }}
+          value: {{ include "cluster-api-provider-gcp.gcpCredentialsEnv" . }}
         - name: NODE_NAME
           valueFrom:
             fieldRef:
