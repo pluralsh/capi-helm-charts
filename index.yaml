@@ -427,6 +427,16 @@ entries:
   cluster-api-provider-gcp:
   - apiVersion: v2
     appVersion: v1.4.0
+    created: "2023-08-23T15:28:31.268726026Z"
+    description: A Helm chart for Kubernetes
+    digest: 7d786784b3fa823be1d9c882dbb66fdb9163590eb7b1ae90e5070c4d9cd0edf5
+    name: cluster-api-provider-gcp
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-gcp-0.1.4/cluster-api-provider-gcp-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: v1.4.0
     created: "2023-08-22T11:20:45.413114618Z"
     description: A Helm chart for Kubernetes
     digest: 5773906e370c9abe40aff67c36591ea68d2e8d499c90e6a88210c163e66de8ac
@@ -465,4 +475,4 @@ entries:
     urls:
     - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-gcp-0.1.0/cluster-api-provider-gcp-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-22T11:20:45.41330412Z"
+generated: "2023-08-23T15:28:31.268906427Z"
