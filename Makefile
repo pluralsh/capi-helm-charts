@@ -146,6 +146,11 @@ gcp: kustomize helmify yq
 	cat infrastructure-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-provider-gcp
 	rm infrastructure-components.yaml tmp.yaml tmp2.yaml
 
+	# Delete the secret file since we are managing that ourselves
+	rm charts/cluster-api-provider-gcp/templates/manager-bootstrap-credentials.yaml
+	# Add the bootstrapMode toggle to easily nullify the credentials.
+	$(YQ) -i ".bootstrapMode=false" charts/cluster-api-provider-gcp/values.yaml
+
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-provider-gcp/Chart.yaml) != "${GCP_VERSION}" ]; then \
 		echo "Updating GCP appVersion and chart version"; \
 		$(YQ) -i ".appVersion=\"${GCP_VERSION}\"" charts/cluster-api-provider-gcp/Chart.yaml; \

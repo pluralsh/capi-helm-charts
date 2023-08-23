@@ -60,3 +60,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Return the gcp credentials JSON depending on if bootstrap credentials should be used
+*/}}
+{{- define "cluster-api-provider-gcp.gcpCredentialsValue" -}}
+{{- if .Values.bootstrapMode -}}
+{{- print .Values.managerBootstrapCredentials.credentialsJson -}}
+{{- else -}}
+{{ print "" }}
+{{- end -}}
+{{- end -}}
