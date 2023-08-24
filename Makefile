@@ -123,8 +123,14 @@ azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so
 	cat infrastructure-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-provider-azure
 	rm infrastructure-components.yaml tmp.yaml tmp2.yaml
 
-# This removes the awsB64EncodedCredentials from the values.yaml since it is being set by managerBootstrapCredentials.credentials instead
+# This removes the azureClientIdB64 from the values.yaml since it is being set by managerBootstrapCredentials.credentials instead
 	$(YQ) -i "del(.configVariables.azureClientIdB64) | del(.configVariables.azureClientSecretB64) | del(.configVariables.azureSubscriptionIdB64) | del(.configVariables.azureTenantIdB64)" charts/cluster-api-provider-azure/values.yaml
+
+# Delete the secret file since we are managing that ourselves
+	rm charts/cluster-api-provider-azure/templates/manager-bootstrap-credentials.yaml
+
+# Add the bootstrapMode toggle to easily nullify the credentials.
+	$(YQ) -i ".bootstrapMode=true" charts/cluster-api-provider-azure/values.yaml
 
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-provider-azure/Chart.yaml) != "${AZURE_VERSION}" ]; then \
 		echo "Updating Azure appVersion and chart version"; \
