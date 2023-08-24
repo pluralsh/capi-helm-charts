@@ -66,11 +66,10 @@ Return the b64 encoded aws credentials file depending on if bootstrap credential
 */}}
 {{- define "cluster-api-provider-azure.bootstrap-credentials" -}}
 {{- if .Values.bootstrapMode -}}
-client-id: ""
-client-secret: ""
-clientSecret: {{ .Values.managerBootstrapCredentials.clientSecret | b64enc | quote }}
-subscription-id: ""
-tenant-id: ""
+client-id: {{ .Values.managerBootstrapCredentials.clientId | b64enc | quote }}
+client-secret: {{ .Values.managerBootstrapCredentials.clientSecret | b64enc | quote }}
+subscription-id: {{ .Values.managerBootstrapCredentials.subscriptionId | b64enc | quote }}
+tenant-id: {{ .Values.managerBootstrapCredentials.tenantId | b64enc | quote }}
 {{- else -}}
 client-id: ""
 client-secret: ""
