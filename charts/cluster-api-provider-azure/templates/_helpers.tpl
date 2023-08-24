@@ -60,3 +60,20 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Return the b64 encoded aws credentials file depending on if bootstrap credentials should be used
+*/}}
+{{- define "cluster-api-provider-azure.bootstrap-credentials" -}}
+{{- if .Values.bootstrapMode -}}
+client-id: {{ .Values.managerBootstrapCredentials.clientId | b64enc | quote }}
+client-secret: {{ .Values.managerBootstrapCredentials.clientSecret | b64enc | quote }}
+subscription-id: {{ .Values.managerBootstrapCredentials.subscriptionId | b64enc | quote }}
+tenant-id: {{ .Values.managerBootstrapCredentials.tenantId | b64enc | quote }}
+{{- else -}}
+client-id: ""
+client-secret: ""
+subscription-id: ""
+tenant-id: ""
+{{- end -}}
+{{- end -}}
