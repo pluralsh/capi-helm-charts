@@ -2,7 +2,7 @@ CORE_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sig
 CONTROL_PLANE_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 BOOTSTRAP_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 DOCKER_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
-AWS_VERSION=v2.2.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-aws
+AWS_VERSION=v2.2.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-aws
 AZURE_VERSION=v1.10.3# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
 GCP_VERSION=v1.4.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
 

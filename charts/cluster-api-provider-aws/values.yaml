@@ -29,7 +29,7 @@ controllerManager:
       awsSharedCredentialsFile: /home/.aws/credentials
     image:
       repository: registry.k8s.io/cluster-api-aws/cluster-api-aws-controller
-      tag: v2.2.1
+      tag: v2.2.2
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
