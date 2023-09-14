@@ -2,8 +2,8 @@ apiVersion: v2
 name: cluster-api-provider-aws
 description: A Helm chart for deploying the Cluster API Provider AWS
 type: application
-version: 0.1.9
-appVersion: "v2.2.1"
+version: 0.1.10
+appVersion: "v2.2.2"
 maintainers:
   - name: Plural
     url: https://www.plural.sh
