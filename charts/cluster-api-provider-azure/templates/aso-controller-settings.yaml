@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+  labels:
+  {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
+stringData:
+  AZURE_CLIENT_ID: {{ .Values.asoControllerSettings.azureClientId | quote }}
+  AZURE_SUBSCRIPTION_ID: {{ .Values.asoControllerSettings.azureSubscriptionId | quote }}
+  AZURE_TENANT_ID: {{ .Values.asoControllerSettings.azureTenantId | quote }}
+type: Opaque

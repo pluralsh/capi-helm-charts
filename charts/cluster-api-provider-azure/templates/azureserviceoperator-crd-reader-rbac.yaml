@@ -1,0 +1,30 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-crd-reader-role
+  labels:
+  {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-crd-reader-rolebinding
+  labels:
+  {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: '{{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-crd-reader-role'
+subjects:
+- kind: ServiceAccount
+  name: '{{ include "cluster-api-provider-azure.serviceAccountName" . }}'
+  namespace: '{{ .Release.Namespace }}'

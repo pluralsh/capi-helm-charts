@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-capz-aad-pod-id-nmi-binding
+  labels:
+    cluster.x-k8s.io/provider: infrastructure-azure
+    k8s-app: capz-aad-pod-id-nmi-binding
+  {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: '{{ include "cluster-api-provider-azure.fullname" . }}-capz-aad-pod-id-nmi-role'
+subjects:
+- kind: ServiceAccount
+  name: '{{ include "cluster-api-provider-azure.serviceAccountName" . }}'
+  namespace: '{{ .Release.Namespace }}'
