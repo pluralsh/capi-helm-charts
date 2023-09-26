@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-controller-manager
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-manager
   labels:
     control-plane: controller-manager
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
-  {{- with .Values.azureserviceoperatorControllerManager.labels }}
+  {{- with .Values.asoControllerManager.labels }}
   {{- toYaml . | nindent 4 }}
   {{- end }}
   annotations:
-  {{- with .Values.azureserviceoperatorControllerManager.annotations }}
+  {{- with .Values.asoControllerManager.annotations }}
   {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  replicas: {{ .Values.azureserviceoperatorControllerManager.replicas }}
+  replicas: {{ .Values.asoControllerManager.replicas }}
   selector:
     matchLabels:
       control-plane: controller-manager
@@ -118,8 +118,8 @@ spec:
               fieldPath: metadata.namespace
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
-        image: {{ .Values.azureserviceoperatorControllerManager.manager.image.repository }}:{{ .Values.azureserviceoperatorControllerManager.manager.image.tag | default .Chart.AppVersion }}
-        imagePullPolicy: {{ .Values.azureserviceoperatorControllerManager.manager.imagePullPolicy }}
+        image: {{ .Values.asoControllerManager.manager.image.repository }}:{{ .Values.asoControllerManager.manager.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.asoControllerManager.manager.imagePullPolicy }}
         livenessProbe:
           httpGet:
             path: /healthz
@@ -141,8 +141,8 @@ spec:
             path: /readyz
             port: 8081
           initialDelaySeconds: 60
-        resources: {{- toYaml .Values.azureserviceoperatorControllerManager.manager.resources | nindent 10 }}
-        securityContext: {{- toYaml .Values.azureserviceoperatorControllerManager.manager.containerSecurityContext | nindent 10 }}
+        resources: {{- toYaml .Values.asoControllerManager.manager.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.asoControllerManager.manager.containerSecurityContext | nindent 10 }}
         volumeMounts:
         - mountPath: /var/run/secrets/tokens
           name: azure-identity
@@ -158,15 +158,15 @@ spec:
         env:
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
-        image: {{ .Values.azureserviceoperatorControllerManager.kubeRbacProxy.image.repository }}:{{ .Values.azureserviceoperatorControllerManager.kubeRbacProxy.image.tag | default .Chart.AppVersion }}
+        image: {{ .Values.asoControllerManager.kubeRbacProxy.image.repository }}:{{ .Values.asoControllerManager.kubeRbacProxy.image.tag | default .Chart.AppVersion }}
         name: kube-rbac-proxy
         ports:
         - containerPort: 8443
           name: https
-        resources: {{- toYaml .Values.azureserviceoperatorControllerManager.kubeRbacProxy.resources | nindent 10 }}
-        securityContext: {{- toYaml .Values.azureserviceoperatorControllerManager.kubeRbacProxy.containerSecurityContext | nindent 10 }}
+        resources: {{- toYaml .Values.asoControllerManager.kubeRbacProxy.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.asoControllerManager.kubeRbacProxy.containerSecurityContext | nindent 10 }}
       imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
-      nodeSelector: {{- toYaml .Values.azureserviceoperatorControllerManager.nodeSelector | nindent 8 }}
+      nodeSelector: {{- toYaml .Values.asoControllerManager.nodeSelector | nindent 8 }}
       serviceAccountName: {{ include "cluster-api-provider-azure.serviceAccountName" . }}
       terminationGracePeriodSeconds: 10
       volumes:

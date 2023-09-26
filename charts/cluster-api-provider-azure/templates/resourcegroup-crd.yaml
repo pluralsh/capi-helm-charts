@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   name: resourcegroups.resources.azure.com
   annotations:
-    cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/{{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-serving-cert'
+    cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/{{ include "cluster-api-provider-azure.fullname" . }}-aso-serving-cert'
     controller-gen.kubebuilder.io/version: v0.13.0
   labels:
     clusterctl.cluster.x-k8s.io: ""
@@ -15,7 +15,7 @@ spec:
     webhook:
       clientConfig:
         service:
-          name: '{{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-webhook-service'
+          name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
           namespace: '{{ .Release.Namespace }}'
           path: /convert
           port: 443

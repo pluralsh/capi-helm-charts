@@ -1,9 +1,4 @@
-asoControllerSettings:
-  azureClientId: ""
-  azureSubscriptionId: ""
-  azureTenantId: ""
-  azureClientSecret: ""
-azureserviceoperatorControllerManager:
+asoControllerManager:
   annotations: {}
   kubeRbacProxy:
     containerSecurityContext:
@@ -34,19 +29,24 @@ azureserviceoperatorControllerManager:
   nodeSelector:
     kubernetes.io/os: linux
   replicas: 1
-azureserviceoperatorControllerManagerMetricsService:
+asoControllerManagerMetricsService:
   ports:
     - name: metrics
       port: 8080
       targetPort: 0
   type: ClusterIP
-azureserviceoperatorProxyService:
+asoControllerSettings:
+  azureClientId: ""
+  azureSubscriptionId: ""
+  azureTenantId: ""
+  azureClientSecret: ""
+asoProxyService:
   ports:
     - name: https
       port: 8443
       targetPort: https
   type: ClusterIP
-azureserviceoperatorWebhookService:
+asoWebhookService:
   ports:
     - port: 443
       targetPort: 9443
@@ -119,4 +119,6 @@ serviceAccount:
   create: true
   labels: {}
   name: ""
+nameOverride: capz
+fullnameOverride: ""
 bootstrapMode: true

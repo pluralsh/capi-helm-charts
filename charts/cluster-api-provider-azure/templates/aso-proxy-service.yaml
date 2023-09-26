@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-proxy-service
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-proxy-service
   labels:
     control-plane: controller-manager
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.azureserviceoperatorProxyService.type }}
+  type: {{ .Values.asoProxyService.type }}
   selector:
     control-plane: controller-manager
   {{- include "cluster-api-provider-azure.selectorLabels" . | nindent 4 }}
   ports:
-	{{- .Values.azureserviceoperatorProxyService.ports | toYaml | nindent 2 -}}
+	{{- .Values.asoProxyService.ports | toYaml | nindent 2 -}}

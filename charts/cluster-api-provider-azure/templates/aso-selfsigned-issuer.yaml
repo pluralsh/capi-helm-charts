@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: {{ include "cluster-api-provider-azure.fullname" . }}-azureserviceoperator-selfsigned-issuer
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-selfsigned-issuer
   labels:
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
 spec:
