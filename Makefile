@@ -116,6 +116,11 @@ azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so
 # This rewrite azureserviceoperator to aso to avoid the 63 character limit on object names
 	$(SED) -i 's/azureserviceoperator-/aso-/g' infrastructure-components.yaml
 
+# This configures ASO to use the correct CRD pattern (only resource groups currently)
+	$(SED) -i 's/--crd-pattern=/--crd-pattern=resources.azure.com\/ResourceGroup/g' infrastructure-components.yaml
+
+# TODO: remove aso-crd-writer-rbac.yaml once upstream has fixed their deployment manifests
+
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .stringData += .data | del(.data)' infrastructure-components.yaml > tmp.yaml
 # This removes the Secret from the yaml
