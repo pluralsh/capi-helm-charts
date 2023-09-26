@@ -47,5 +47,5 @@ jobs:
           helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --set installCRDs=true
 
       - name: Run chart-testing (install)
-        run: ct install --build-id ${{ github.event.pull_request.number }} --config ./.github/configs/ct-install.yaml
+        run: ct install --config ./.github/configs/ct-install.yaml
         if: steps.list-changed.outputs.changed == 'true'
