@@ -2,7 +2,7 @@
 ---
 name: Linting and Testing
 on: pull_request
-jobs: 
+jobs:
   chart-test:
     runs-on: ubuntu-latest
     steps:
@@ -30,8 +30,8 @@ jobs:
           changed=$(ct --config ./.github/configs/ct-lint.yaml list-changed)
           charts=$(echo "$changed" | tr '\n' ' ' | xargs)
           if [[ -n "$changed" ]]; then
-            echo "::set-output name=changed::true"
-            echo "::set-output name=changed_charts::$charts"
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed_charts=$charts" >> $GITHUB_OUTPUT
           fi
       - name: Run chart-testing (lint)
         run: ct lint --debug --config ./.github/configs/ct-lint.yaml --lint-conf ./.github/configs/lintconf.yaml
@@ -39,12 +39,16 @@ jobs:
       - name: Create kind cluster
         uses: helm/kind-action@v1.8.0
         if: steps.list-changed.outputs.changed == 'true'
-      
+
       - name: Install cert-manager
         run: |
           helm repo add jetstack https://charts.jetstack.io
           helm repo update
           helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --set installCRDs=true
+
+      - name: Install cluster-api-core chart
+        run: |
+          helm install cluster-api-core capi/cluster-api-core --namespace cluster-api-core --create-namespace
 
       - name: Run chart-testing (install)
         run: ct install --config ./.github/configs/ct-install.yaml

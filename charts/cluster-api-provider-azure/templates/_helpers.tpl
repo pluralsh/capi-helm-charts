@@ -15,10 +15,11 @@ If release name contains chart name it will be used as a full name.
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
 {{- $name := default .Chart.Name .Values.nameOverride }}
-{{- if contains $name .Release.Name }}
-{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- $releaseName := replace .Chart.Name "capz" .Release.Name }}
+{{- if contains $name $releaseName }}
+{{- $releaseName | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" $releaseName $name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -62,18 +63,18 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Return the b64 encoded aws credentials file depending on if bootstrap credentials should be used
+Return the azure ASO settings depending on if bootstrap credentials should be used
 */}}
-{{- define "cluster-api-provider-azure.bootstrap-credentials" -}}
+{{- define "cluster-api-provider-azure.aso-credentials" -}}
 {{- if .Values.bootstrapMode -}}
-client-id: {{ .Values.managerBootstrapCredentials.clientId | b64enc | quote }}
-client-secret: {{ .Values.managerBootstrapCredentials.clientSecret | b64enc | quote }}
-subscription-id: {{ .Values.managerBootstrapCredentials.subscriptionId | b64enc | quote }}
-tenant-id: {{ .Values.managerBootstrapCredentials.tenantId | b64enc | quote }}
+AZURE_CLIENT_ID: {{ .Values.asoControllerSettings.azureClientId | b64enc | quote }}
+AZURE_SUBSCRIPTION_ID: {{ .Values.asoControllerSettings.azureSubscriptionId | b64enc | quote }}
+AZURE_TENANT_ID: {{ .Values.asoControllerSettings.azureTenantId | b64enc | quote }}
+AZURE_CLIENT_SECRET: {{ .Values.asoControllerSettings.azureClientSecret | b64enc | quote }}
 {{- else -}}
-client-id: ""
-client-secret: ""
-subscription-id: ""
-tenant-id: ""
+AZURE_CLIENT_ID: {{ .Values.asoControllerSettings.azureClientId | b64enc | quote }}
+AZURE_SUBSCRIPTION_ID: {{ .Values.asoControllerSettings.azureSubscriptionId | b64enc | quote }}
+AZURE_TENANT_ID: {{ .Values.asoControllerSettings.azureTenantId | b64enc | quote }}
+USE_WORKLOAD_IDENTITY_AUTH: "true"
 {{- end -}}
 {{- end -}}

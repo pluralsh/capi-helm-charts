@@ -1,21 +1,206 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "cluster-api-provider-azure.fullname" . }}-controller-manager
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-manager
+  labels:
+    control-plane: controller-manager
+  {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
+  {{- with .Values.asoControllerManager.labels }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+  annotations:
+  {{- with .Values.asoControllerManager.annotations }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: {{ .Values.asoControllerManager.replicas }}
+  selector:
+    matchLabels:
+      control-plane: controller-manager
+    {{- include "cluster-api-provider-azure.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        aadpodidbinding: aso-manager-binding
+        app.kubernetes.io/name: azure-service-operator
+        app.kubernetes.io/version: v2.3.0
+        control-plane: controller-manager
+      {{- include "cluster-api-provider-azure.selectorLabels" . | nindent 8 }}
+      annotations:
+        kubectl.kubernetes.io/default-container: manager
+    spec:
+      containers:
+      - args:
+        - --metrics-addr=:8080
+        - --health-addr=:8081
+        - --enable-leader-election
+        - --v=2
+        - --crd-pattern=resources.azure.com/ResourceGroup
+        env:
+        - name: AZURE_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_CLIENT_ID
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+        - name: AZURE_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_CLIENT_SECRET
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_TENANT_ID
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_TENANT_ID
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+        - name: AZURE_SUBSCRIPTION_ID
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_SUBSCRIPTION_ID
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+        - name: AZURE_CLIENT_CERTIFICATE
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_CLIENT_CERTIFICATE
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_CLIENT_CERTIFICATE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_CLIENT_CERTIFICATE_PASSWORD
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_AUTHORITY_HOST
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_AUTHORITY_HOST
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_RESOURCE_MANAGER_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_RESOURCE_MANAGER_ENDPOINT
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_RESOURCE_MANAGER_AUDIENCE
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_RESOURCE_MANAGER_AUDIENCE
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_TARGET_NAMESPACES
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_TARGET_NAMESPACES
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_OPERATOR_MODE
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_OPERATOR_MODE
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: AZURE_SYNC_PERIOD
+          valueFrom:
+            secretKeyRef:
+              key: AZURE_SYNC_PERIOD
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: USE_WORKLOAD_IDENTITY_AUTH
+          valueFrom:
+            secretKeyRef:
+              key: USE_WORKLOAD_IDENTITY_AUTH
+              name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-controller-settings
+              optional: true
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.asoControllerManager.manager.image.repository }}:{{ .Values.asoControllerManager.manager.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.asoControllerManager.manager.imagePullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          initialDelaySeconds: 60
+        name: manager
+        ports:
+        - containerPort: 9443
+          name: webhook-server
+          protocol: TCP
+        - containerPort: 8081
+          name: health-port
+          protocol: TCP
+        - containerPort: 8080
+          name: metrics-port
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          initialDelaySeconds: 60
+        resources: {{- toYaml .Values.asoControllerManager.manager.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.asoControllerManager.manager.containerSecurityContext | nindent 10 }}
+        volumeMounts:
+        - mountPath: /var/run/secrets/tokens
+          name: azure-identity
+          readOnly: true
+        - mountPath: /tmp/k8s-webhook-server/serving-certs
+          name: cert
+          readOnly: true
+      - args:
+        - --secure-listen-address=0.0.0.0:8443
+        - --upstream=http://127.0.0.1:8080/
+        - --logtostderr=true
+        - --v=10
+        env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.asoControllerManager.kubeRbacProxy.image.repository }}:{{ .Values.asoControllerManager.kubeRbacProxy.image.tag | default .Chart.AppVersion }}
+        name: kube-rbac-proxy
+        ports:
+        - containerPort: 8443
+          name: https
+        resources: {{- toYaml .Values.asoControllerManager.kubeRbacProxy.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.asoControllerManager.kubeRbacProxy.containerSecurityContext | nindent 10 }}
+      imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
+      nodeSelector: {{- toYaml .Values.asoControllerManager.nodeSelector | nindent 8 }}
+      serviceAccountName: {{ include "cluster-api-provider-azure.asoDefaultServiceAccountName" . }}
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: cert
+        secret:
+          defaultMode: 420
+          secretName: webhook-server-cert
+      - name: azure-identity
+        projected:
+          defaultMode: 420
+          sources:
+          - serviceAccountToken:
+              audience: api://AzureADTokenExchange
+              expirationSeconds: 3600
+              path: azure-identity
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-capz-controller-manager
   labels:
     aadpodidbinding: capz-controller-aadpodidentity-selector
     cluster.x-k8s.io/provider: infrastructure-azure
     control-plane: capz-controller-manager
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
-  {{- with .Values.controllerManager.labels }}
+  {{- with .Values.capzControllerManager.labels }}
   {{- toYaml . | nindent 4 }}
   {{- end }}
   annotations:
-  {{- with .Values.controllerManager.annotations }}
+  {{- with .Values.capzControllerManager.annotations }}
   {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  replicas: {{ .Values.controllerManager.replicas }}
+  replicas: {{ .Values.capzControllerManager.replicas }}
   selector:
     matchLabels:
       cluster.x-k8s.io/provider: infrastructure-azure
@@ -39,26 +224,6 @@ spec:
         - --feature-gates=MachinePool={{ .Values.configVariables.exprimental.machinePool }},AKSResourceHealth={{ .Values.configVariables.exprimental.aksResourceHealth }},EdgeZone={{ .Values.configVariables.exprimental.edgezone }}
         - --v=0
         env:
-        - name: AZURE_SUBSCRIPTION_ID
-          valueFrom:
-            secretKeyRef:
-              key: subscription-id
-              name: {{ include "cluster-api-provider-azure.fullname" . }}-manager-bootstrap-credentials
-        - name: AZURE_TENANT_ID
-          valueFrom:
-            secretKeyRef:
-              key: tenant-id
-              name: {{ include "cluster-api-provider-azure.fullname" . }}-manager-bootstrap-credentials
-        - name: AZURE_CLIENT_ID
-          valueFrom:
-            secretKeyRef:
-              key: client-id
-              name: {{ include "cluster-api-provider-azure.fullname" . }}-manager-bootstrap-credentials
-        - name: AZURE_CLIENT_SECRET
-          valueFrom:
-            secretKeyRef:
-              key: client-secret
-              name: {{ include "cluster-api-provider-azure.fullname" . }}-manager-bootstrap-credentials
         - name: NODE_NAME
           valueFrom:
             fieldRef:
@@ -73,8 +238,8 @@ spec:
               fieldPath: metadata.namespace
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
-        image: {{ .Values.controllerManager.manager.image.repository }}:{{ .Values.controllerManager.manager.image.tag | default .Chart.AppVersion }}
-        imagePullPolicy: {{ .Values.controllerManager.manager.imagePullPolicy }}
+        image: {{ .Values.capzControllerManager.manager.image.repository }}:{{ .Values.capzControllerManager.manager.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.capzControllerManager.manager.imagePullPolicy }}
         livenessProbe:
           httpGet:
             path: /healthz
@@ -95,8 +260,8 @@ spec:
             port: healthz
           initialDelaySeconds: 10
           periodSeconds: 10
-        resources: {{- toYaml .Values.controllerManager.manager.resources | nindent 10 }}
-        securityContext: {{- toYaml .Values.controllerManager.manager.containerSecurityContext | nindent 10 }}
+        resources: {{- toYaml .Values.capzControllerManager.manager.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.capzControllerManager.manager.containerSecurityContext | nindent 10 }}
         volumeMounts:
         - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
@@ -105,12 +270,12 @@ spec:
           name: azure-identity-token
           readOnly: true
       imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
-      nodeSelector: {{- toYaml .Values.controllerManager.nodeSelector | nindent 8 }}
+      nodeSelector: {{- toYaml .Values.capzControllerManager.nodeSelector | nindent 8 }}
       securityContext:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: {{ include "cluster-api-provider-azure.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-provider-azure.capzManagerServiceAccountName" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule

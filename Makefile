@@ -3,7 +3,7 @@ CONTROL_PLANE_VERSION=v1.5.1# renovate: datasource=github-releases depName=kuber
 BOOTSTRAP_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 DOCKER_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 AWS_VERSION=v2.2.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-aws
-AZURE_VERSION=v1.10.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
+AZURE_VERSION=v1.11.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
 GCP_VERSION=v1.4.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
 
 ## Location to install dependencies to
@@ -112,6 +112,15 @@ aws: kustomize helmify yq
 azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so the next isn't relevant, but further checking should be done. this is deploying multiple things so we need to improve the helmify fork to avoid clashes with SA names.
 	curl -OL https://github.com/kubernetes-sigs/cluster-api-provider-azure/releases/download/${AZURE_VERSION}/infrastructure-components.yaml
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-provider-azure/crds/provider-crd.yaml
+
+# This rewrite azureserviceoperator to aso to avoid the 63 character limit on object names
+	$(SED) -i 's/azureserviceoperator-/aso-/g' infrastructure-components.yaml
+
+# This configures ASO to use the correct CRD pattern (only resource groups currently)
+	$(SED) -i 's/--crd-pattern=/--crd-pattern=resources.azure.com\/ResourceGroup/g' infrastructure-components.yaml
+
+# TODO: remove aso-crd-writer-rbac.yaml once upstream has fixed their deployment manifests
+
 # This rewrites the data to stringData in the secret
 	$(YQ) 'select(.kind == "Secret") | .stringData += .data | del(.data)' infrastructure-components.yaml > tmp.yaml
 # This removes the Secret from the yaml
@@ -124,10 +133,10 @@ azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so
 	rm infrastructure-components.yaml tmp.yaml tmp2.yaml
 
 # This removes the azureClientIdB64 from the values.yaml since it is being set by managerBootstrapCredentials.credentials instead
-	$(YQ) -i "del(.configVariables.azureClientIdB64) | del(.configVariables.azureClientSecretB64) | del(.configVariables.azureSubscriptionIdB64) | del(.configVariables.azureTenantIdB64)" charts/cluster-api-provider-azure/values.yaml
+	$(YQ) -i ".nameOverride=\"capz\" | .fullnameOverride=\"\" | .asoControllerSettings.azureClientSecret=\"\" | del(.configVariables.azureClientIdB64) | del(.configVariables.azureClientSecretB64) | del(.configVariables.azureSubscriptionIdB64) | del(.configVariables.azureTenantIdB64)" charts/cluster-api-provider-azure/values.yaml
 
 # Delete the secret file since we are managing that ourselves
-	rm charts/cluster-api-provider-azure/templates/manager-bootstrap-credentials.yaml
+	rm charts/cluster-api-provider-azure/templates/aso-controller-settings.yaml
 
 # Add the bootstrapMode toggle to easily nullify the credentials.
 	$(YQ) -i ".bootstrapMode=true" charts/cluster-api-provider-azure/values.yaml

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: {{ include "cluster-api-provider-azure.fullname" . }}-nmi
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-capz-nmi
   labels:
     cluster.x-k8s.io/provider: infrastructure-azure
     component: nmi
@@ -31,7 +31,7 @@ spec:
         - --http-probe-port=8085
         env:
         - name: FORCENAMESPACED
-          value: {{ quote .Values.nmi.nmi.env.forcenamespaced }}
+          value: {{ quote .Values.capzNmi.nmi.env.forcenamespaced }}
         - name: HOST_IP
           valueFrom:
             fieldRef:
@@ -41,11 +41,11 @@ spec:
             fieldRef:
               fieldPath: spec.nodeName
         - name: LOG_LEVEL
-          value: {{ quote .Values.nmi.nmi.env.logLevel }}
+          value: {{ quote .Values.capzNmi.nmi.env.logLevel }}
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
-        image: {{ .Values.nmi.nmi.image.repository }}:{{ .Values.nmi.nmi.image.tag | default .Chart.AppVersion }}
-        imagePullPolicy: {{ .Values.nmi.nmi.imagePullPolicy }}
+        image: {{ .Values.capzNmi.nmi.image.repository }}:{{ .Values.capzNmi.nmi.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.capzNmi.nmi.imagePullPolicy }}
         livenessProbe:
           httpGet:
             path: /healthz
@@ -53,8 +53,8 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 5
         name: nmi
-        resources: {{- toYaml .Values.nmi.nmi.resources | nindent 10 }}
-        securityContext: {{- toYaml .Values.nmi.nmi.containerSecurityContext | nindent 10 }}
+        resources: {{- toYaml .Values.capzNmi.nmi.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.capzNmi.nmi.containerSecurityContext | nindent 10 }}
         volumeMounts:
         - mountPath: /run/xtables.lock
           name: iptableslock
@@ -67,8 +67,9 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: true
       imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
-      nodeSelector: {{- toYaml .Values.nmi.nodeSelector | nindent 8 }}
-      serviceAccountName: {{ include "cluster-api-provider-azure.serviceAccountName" . }}
+      nodeSelector: {{- toYaml .Values.capzNmi.nodeSelector | nindent 8 }}
+      priorityClassName: system-node-critical
+      serviceAccountName: {{ include "cluster-api-provider-azure.capzManagerServiceAccountName" . }}
       tolerations:
       - effect: NoSchedule
         key: node-role.kubernetes.io/master

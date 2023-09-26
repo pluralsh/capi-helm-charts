@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service
+  labels:
+  {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.asoWebhookService.type }}
+  selector:
+    control-plane: controller-manager
+  {{- include "cluster-api-provider-azure.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.asoWebhookService.ports | toYaml | nindent 2 -}}

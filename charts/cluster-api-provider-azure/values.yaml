@@ -1,9 +1,57 @@
-configVariables:
-  exprimental:
-    aksResourceHealth: false
-    edgezone: false
-    machinePool: false
-controllerManager:
+asoControllerManager:
+  annotations: {}
+  kubeRbacProxy:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+    image:
+      repository: gcr.io/kubebuilder/kube-rbac-proxy
+      tag: v0.13.1
+    resources:
+      limits: {}
+      requests: {}
+  labels: {}
+  manager:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+    image:
+      repository: mcr.microsoft.com/k8s/azureserviceoperator
+      tag: v2.3.0
+    imagePullPolicy: Always
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 200m
+        memory: 256Mi
+  nodeSelector:
+    kubernetes.io/os: linux
+  replicas: 1
+asoControllerManagerMetricsService:
+  ports:
+    - name: metrics
+      port: 8080
+      targetPort: 0
+  type: ClusterIP
+asoControllerSettings:
+  azureClientId: ""
+  azureSubscriptionId: ""
+  azureTenantId: ""
+  azureClientSecret: ""
+asoProxyService:
+  ports:
+    - name: https
+      port: 8443
+      targetPort: https
+  type: ClusterIP
+asoWebhookService:
+  ports:
+    - port: 443
+      targetPort: 9443
+  type: ClusterIP
+capzControllerManager:
   annotations: {}
   labels: {}
   manager:
@@ -16,23 +64,14 @@ controllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api-azure/cluster-api-azure-controller
-      tag: v1.10.4
+      tag: v1.11.1
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
       requests: {}
   nodeSelector: {}
   replicas: 1
-crds:
-  create: true
-imagePullSecrets: []
-kubernetesClusterDomain: cluster.local
-managerBootstrapCredentials:
-  clientId: ""
-  clientSecret: ""
-  subscriptionId: ""
-  tenantId: ""
-nmi:
+capzNmi:
   annotations: {}
   labels: {}
   nmi:
@@ -61,14 +100,31 @@ nmi:
         memory: 256Mi
   nodeSelector:
     kubernetes.io/os: linux
-serviceAccount:
-  annotations: {}
-  create: true
-  labels: {}
-  name: ""
-webhookService:
+capzWebhookService:
   ports:
     - port: 443
       targetPort: webhook-server
   type: ClusterIP
+configVariables:
+  exprimental:
+    aksResourceHealth: false
+    edgezone: false
+    machinePool: false
+crds:
+  create: true
+imagePullSecrets: []
+kubernetesClusterDomain: cluster.local
+serviceAccounts:
+  asoDefault:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
+  capzManager:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
+nameOverride: capz
+fullnameOverride: ""
 bootstrapMode: true
