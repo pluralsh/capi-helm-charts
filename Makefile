@@ -124,10 +124,10 @@ azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so
 	rm infrastructure-components.yaml tmp.yaml tmp2.yaml
 
 # This removes the azureClientIdB64 from the values.yaml since it is being set by managerBootstrapCredentials.credentials instead
-	$(YQ) -i "del(.configVariables.azureClientIdB64) | del(.configVariables.azureClientSecretB64) | del(.configVariables.azureSubscriptionIdB64) | del(.configVariables.azureTenantIdB64)" charts/cluster-api-provider-azure/values.yaml
+	$(YQ) -i ".asoControllerSettings.azureClientSecret=\"\" | del(.configVariables.azureClientIdB64) | del(.configVariables.azureClientSecretB64) | del(.configVariables.azureSubscriptionIdB64) | del(.configVariables.azureTenantIdB64)" charts/cluster-api-provider-azure/values.yaml
 
 # Delete the secret file since we are managing that ourselves
-	rm charts/cluster-api-provider-azure/templates/manager-bootstrap-credentials.yaml
+	rm charts/cluster-api-provider-azure/templates/aso-controller-settings.yaml
 
 # Add the bootstrapMode toggle to easily nullify the credentials.
 	$(YQ) -i ".bootstrapMode=true" charts/cluster-api-provider-azure/values.yaml

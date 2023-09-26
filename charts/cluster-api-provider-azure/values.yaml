@@ -2,6 +2,7 @@ asoControllerSettings:
   azureClientId: ""
   azureSubscriptionId: ""
   azureTenantId: ""
+  azureClientSecret: ""
 azureserviceoperatorControllerManager:
   annotations: {}
   kubeRbacProxy:
@@ -118,3 +119,4 @@ serviceAccount:
   create: true
   labels: {}
   name: ""
+bootstrapMode: true
