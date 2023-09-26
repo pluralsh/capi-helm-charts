@@ -69,7 +69,7 @@ spec:
       imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
       nodeSelector: {{- toYaml .Values.capzNmi.nodeSelector | nindent 8 }}
       priorityClassName: system-node-critical
-      serviceAccountName: {{ include "cluster-api-provider-azure.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-provider-azure.capzManagerServiceAccountName" . }}
       tolerations:
       - effect: NoSchedule
         key: node-role.kubernetes.io/master

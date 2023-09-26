@@ -114,11 +114,17 @@ crds:
   create: true
 imagePullSecrets: []
 kubernetesClusterDomain: cluster.local
-serviceAccount:
-  annotations: {}
-  create: true
-  labels: {}
-  name: ""
+serviceAccounts:
+  asoDefault:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
+  capzManager:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
 nameOverride: capz
 fullnameOverride: ""
 bootstrapMode: true

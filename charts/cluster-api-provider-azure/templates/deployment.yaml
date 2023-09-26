@@ -167,7 +167,7 @@ spec:
         securityContext: {{- toYaml .Values.asoControllerManager.kubeRbacProxy.containerSecurityContext | nindent 10 }}
       imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
       nodeSelector: {{- toYaml .Values.asoControllerManager.nodeSelector | nindent 8 }}
-      serviceAccountName: {{ include "cluster-api-provider-azure.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-provider-azure.asoDefaultServiceAccountName" . }}
       terminationGracePeriodSeconds: 10
       volumes:
       - name: cert
@@ -275,7 +275,7 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: {{ include "cluster-api-provider-azure.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-provider-azure.capzManagerServiceAccountName" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule
