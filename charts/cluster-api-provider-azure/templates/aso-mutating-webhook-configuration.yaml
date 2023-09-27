@@ -11,7 +11,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-appconfiguration-azure-com-v1api20220501-configurationstore
   failurePolicy: Fail
@@ -32,7 +32,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-appconfiguration-azure-com-v1beta20220501-configurationstore
   failurePolicy: Fail
@@ -53,7 +53,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-authorization-azure-com-v1api20200801preview-roleassignment
   failurePolicy: Fail
@@ -74,7 +74,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-authorization-azure-com-v1beta20200801preview-roleassignment
   failurePolicy: Fail
@@ -95,7 +95,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-batch-azure-com-v1api20210101-batchaccount
   failurePolicy: Fail
@@ -116,7 +116,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-batch-azure-com-v1beta20210101-batchaccount
   failurePolicy: Fail
@@ -137,7 +137,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20201201-redis
   failurePolicy: Fail
@@ -158,7 +158,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20201201-redisfirewallrule
   failurePolicy: Fail
@@ -179,7 +179,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20201201-redislinkedserver
   failurePolicy: Fail
@@ -200,7 +200,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20201201-redispatchschedule
   failurePolicy: Fail
@@ -221,7 +221,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20210301-redisenterprisedatabase
   failurePolicy: Fail
@@ -242,7 +242,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20210301-redisenterprise
   failurePolicy: Fail
@@ -263,7 +263,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20230401-redis
   failurePolicy: Fail
@@ -284,7 +284,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20230401-redisfirewallrule
   failurePolicy: Fail
@@ -305,7 +305,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20230401-redislinkedserver
   failurePolicy: Fail
@@ -326,7 +326,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20230401-redispatchschedule
   failurePolicy: Fail
@@ -347,7 +347,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20230701-redisenterprisedatabase
   failurePolicy: Fail
@@ -368,7 +368,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1api20230701-redisenterprise
   failurePolicy: Fail
@@ -389,7 +389,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1beta20201201-redis
   failurePolicy: Fail
@@ -410,7 +410,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1beta20201201-redisfirewallrule
   failurePolicy: Fail
@@ -431,7 +431,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1beta20201201-redislinkedserver
   failurePolicy: Fail
@@ -452,7 +452,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1beta20201201-redispatchschedule
   failurePolicy: Fail
@@ -473,7 +473,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1beta20210301-redisenterprisedatabase
   failurePolicy: Fail
@@ -494,7 +494,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cache-azure-com-v1beta20210301-redisenterprise
   failurePolicy: Fail
@@ -515,7 +515,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cdn-azure-com-v1api20210601-profile
   failurePolicy: Fail
@@ -536,7 +536,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cdn-azure-com-v1api20210601-profilesendpoint
   failurePolicy: Fail
@@ -557,7 +557,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cdn-azure-com-v1beta20210601-profile
   failurePolicy: Fail
@@ -578,7 +578,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-cdn-azure-com-v1beta20210601-profilesendpoint
   failurePolicy: Fail
@@ -599,7 +599,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20200930-disk
   failurePolicy: Fail
@@ -620,7 +620,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20200930-snapshot
   failurePolicy: Fail
@@ -641,7 +641,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20201201-virtualmachine
   failurePolicy: Fail
@@ -662,7 +662,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20201201-virtualmachinescaleset
   failurePolicy: Fail
@@ -683,7 +683,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20210701-image
   failurePolicy: Fail
@@ -704,7 +704,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20220301-image
   failurePolicy: Fail
@@ -725,7 +725,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20220301-virtualmachine
   failurePolicy: Fail
@@ -746,7 +746,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20220301-virtualmachinescaleset
   failurePolicy: Fail
@@ -767,7 +767,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1api20220702-diskencryptionset
   failurePolicy: Fail
@@ -788,7 +788,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20200930-disk
   failurePolicy: Fail
@@ -809,7 +809,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20200930-snapshot
   failurePolicy: Fail
@@ -830,7 +830,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20201201-virtualmachine
   failurePolicy: Fail
@@ -851,7 +851,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20201201-virtualmachinescaleset
   failurePolicy: Fail
@@ -872,7 +872,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20210701-image
   failurePolicy: Fail
@@ -893,7 +893,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20220301-image
   failurePolicy: Fail
@@ -914,7 +914,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20220301-virtualmachine
   failurePolicy: Fail
@@ -935,7 +935,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-compute-azure-com-v1beta20220301-virtualmachinescaleset
   failurePolicy: Fail
@@ -956,7 +956,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerinstance-azure-com-v1api20211001-containergroup
   failurePolicy: Fail
@@ -977,7 +977,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerinstance-azure-com-v1beta20211001-containergroup
   failurePolicy: Fail
@@ -998,7 +998,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerregistry-azure-com-v1api20210901-registry
   failurePolicy: Fail
@@ -1019,7 +1019,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerregistry-azure-com-v1beta20210901-registry
   failurePolicy: Fail
@@ -1040,7 +1040,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1api20210501-managedcluster
   failurePolicy: Fail
@@ -1061,7 +1061,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1api20210501-managedclustersagentpool
   failurePolicy: Fail
@@ -1082,7 +1082,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1api20230201-managedcluster
   failurePolicy: Fail
@@ -1103,7 +1103,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1api20230201-managedclustersagentpool
   failurePolicy: Fail
@@ -1124,7 +1124,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1api20230202preview-managedcluster
   failurePolicy: Fail
@@ -1145,7 +1145,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1api20230202preview-managedclustersagentpool
   failurePolicy: Fail
@@ -1166,7 +1166,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1api20230202preview-trustedaccessrolebinding
   failurePolicy: Fail
@@ -1187,7 +1187,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1beta20210501-managedcluster
   failurePolicy: Fail
@@ -1208,7 +1208,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-containerservice-azure-com-v1beta20210501-managedclustersagentpool
   failurePolicy: Fail
@@ -1229,7 +1229,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-datafactory-azure-com-v1api20180601-factory
   failurePolicy: Fail
@@ -1250,7 +1250,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dataprotection-azure-com-v1api20230101-backupvault
   failurePolicy: Fail
@@ -1271,7 +1271,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dataprotection-azure-com-v1api20230101-backupvaultsbackuppolicy
   failurePolicy: Fail
@@ -1292,7 +1292,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformariadb-azure-com-v1api20180601-configuration
   failurePolicy: Fail
@@ -1313,7 +1313,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformariadb-azure-com-v1api20180601-database
   failurePolicy: Fail
@@ -1334,7 +1334,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformariadb-azure-com-v1api20180601-server
   failurePolicy: Fail
@@ -1355,7 +1355,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformariadb-azure-com-v1beta20180601-configuration
   failurePolicy: Fail
@@ -1376,7 +1376,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformariadb-azure-com-v1beta20180601-database
   failurePolicy: Fail
@@ -1397,7 +1397,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformariadb-azure-com-v1beta20180601-server
   failurePolicy: Fail
@@ -1418,7 +1418,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1api20210501-flexibleserver
   failurePolicy: Fail
@@ -1439,7 +1439,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1api20210501-flexibleserversdatabase
   failurePolicy: Fail
@@ -1460,7 +1460,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1api20210501-flexibleserversfirewallrule
   failurePolicy: Fail
@@ -1481,7 +1481,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1api20220101-flexibleserversadministrator
   failurePolicy: Fail
@@ -1502,7 +1502,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1api20220101-flexibleserversconfiguration
   failurePolicy: Fail
@@ -1523,7 +1523,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1beta20210501-flexibleserver
   failurePolicy: Fail
@@ -1544,7 +1544,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1beta20210501-flexibleserversdatabase
   failurePolicy: Fail
@@ -1565,7 +1565,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1beta20210501-flexibleserversfirewallrule
   failurePolicy: Fail
@@ -1586,7 +1586,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1-user
   failurePolicy: Fail
@@ -1607,7 +1607,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbformysql-azure-com-v1beta1-user
   failurePolicy: Fail
@@ -1628,7 +1628,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20210601-flexibleserver
   failurePolicy: Fail
@@ -1649,7 +1649,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20210601-flexibleserversconfiguration
   failurePolicy: Fail
@@ -1670,7 +1670,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20210601-flexibleserversdatabase
   failurePolicy: Fail
@@ -1691,7 +1691,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20210601-flexibleserversfirewallrule
   failurePolicy: Fail
@@ -1712,7 +1712,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20220120preview-flexibleserver
   failurePolicy: Fail
@@ -1733,7 +1733,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20220120preview-flexibleserversconfiguration
   failurePolicy: Fail
@@ -1754,7 +1754,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20220120preview-flexibleserversdatabase
   failurePolicy: Fail
@@ -1775,7 +1775,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1api20220120preview-flexibleserversfirewallrule
   failurePolicy: Fail
@@ -1796,7 +1796,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20210601-flexibleserver
   failurePolicy: Fail
@@ -1817,7 +1817,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20210601-flexibleserversconfiguration
   failurePolicy: Fail
@@ -1838,7 +1838,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20210601-flexibleserversdatabase
   failurePolicy: Fail
@@ -1859,7 +1859,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20210601-flexibleserversfirewallrule
   failurePolicy: Fail
@@ -1880,7 +1880,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserver
   failurePolicy: Fail
@@ -1901,7 +1901,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserversconfiguration
   failurePolicy: Fail
@@ -1922,7 +1922,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserversdatabase
   failurePolicy: Fail
@@ -1943,7 +1943,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserversfirewallrule
   failurePolicy: Fail
@@ -1964,7 +1964,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-dbforpostgresql-azure-com-v1-user
   failurePolicy: Fail
@@ -1985,7 +1985,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-devices-azure-com-v1api20210702-iothub
   failurePolicy: Fail
@@ -2006,7 +2006,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-databaseaccount
   failurePolicy: Fail
@@ -2027,7 +2027,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-mongodbdatabasecollection
   failurePolicy: Fail
@@ -2048,7 +2048,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-mongodbdatabasecollectionthroughputsetting
   failurePolicy: Fail
@@ -2069,7 +2069,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-mongodbdatabase
   failurePolicy: Fail
@@ -2090,7 +2090,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-mongodbdatabasethroughputsetting
   failurePolicy: Fail
@@ -2111,7 +2111,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqldatabasecontainer
   failurePolicy: Fail
@@ -2132,7 +2132,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqldatabasecontainerstoredprocedure
   failurePolicy: Fail
@@ -2153,7 +2153,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqldatabasecontainerthroughputsetting
   failurePolicy: Fail
@@ -2174,7 +2174,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqldatabasecontainertrigger
   failurePolicy: Fail
@@ -2195,7 +2195,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqldatabasecontaineruserdefinedfunction
   failurePolicy: Fail
@@ -2216,7 +2216,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqldatabase
   failurePolicy: Fail
@@ -2237,7 +2237,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqldatabasethroughputsetting
   failurePolicy: Fail
@@ -2258,7 +2258,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1api20210515-sqlroleassignment
   failurePolicy: Fail
@@ -2279,7 +2279,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-databaseaccount
   failurePolicy: Fail
@@ -2300,7 +2300,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-mongodbdatabasecollection
   failurePolicy: Fail
@@ -2321,7 +2321,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-mongodbdatabasecollectionthroughputsetting
   failurePolicy: Fail
@@ -2342,7 +2342,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-mongodbdatabase
   failurePolicy: Fail
@@ -2363,7 +2363,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-mongodbdatabasethroughputsetting
   failurePolicy: Fail
@@ -2384,7 +2384,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqldatabasecontainer
   failurePolicy: Fail
@@ -2405,7 +2405,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqldatabasecontainerstoredprocedure
   failurePolicy: Fail
@@ -2426,7 +2426,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqldatabasecontainerthroughputsetting
   failurePolicy: Fail
@@ -2447,7 +2447,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqldatabasecontainertrigger
   failurePolicy: Fail
@@ -2468,7 +2468,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqldatabasecontaineruserdefinedfunction
   failurePolicy: Fail
@@ -2489,7 +2489,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqldatabase
   failurePolicy: Fail
@@ -2510,7 +2510,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqldatabasethroughputsetting
   failurePolicy: Fail
@@ -2531,7 +2531,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-documentdb-azure-com-v1beta20210515-sqlroleassignment
   failurePolicy: Fail
@@ -2552,7 +2552,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1api20200601-domain
   failurePolicy: Fail
@@ -2573,7 +2573,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1api20200601-domainstopic
   failurePolicy: Fail
@@ -2594,7 +2594,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1api20200601-eventsubscription
   failurePolicy: Fail
@@ -2615,7 +2615,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1api20200601-topic
   failurePolicy: Fail
@@ -2636,7 +2636,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1beta20200601-domain
   failurePolicy: Fail
@@ -2657,7 +2657,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1beta20200601-domainstopic
   failurePolicy: Fail
@@ -2678,7 +2678,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1beta20200601-eventsubscription
   failurePolicy: Fail
@@ -2699,7 +2699,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventgrid-azure-com-v1beta20200601-topic
   failurePolicy: Fail
@@ -2720,7 +2720,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1api20211101-namespace
   failurePolicy: Fail
@@ -2741,7 +2741,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1api20211101-namespacesauthorizationrule
   failurePolicy: Fail
@@ -2762,7 +2762,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1api20211101-namespaceseventhub
   failurePolicy: Fail
@@ -2783,7 +2783,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1api20211101-namespaceseventhubsauthorizationrule
   failurePolicy: Fail
@@ -2804,7 +2804,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1api20211101-namespaceseventhubsconsumergroup
   failurePolicy: Fail
@@ -2825,7 +2825,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1beta20211101-namespace
   failurePolicy: Fail
@@ -2846,7 +2846,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1beta20211101-namespacesauthorizationrule
   failurePolicy: Fail
@@ -2867,7 +2867,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1beta20211101-namespaceseventhub
   failurePolicy: Fail
@@ -2888,7 +2888,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1beta20211101-namespaceseventhubsauthorizationrule
   failurePolicy: Fail
@@ -2909,7 +2909,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-eventhub-azure-com-v1beta20211101-namespaceseventhubsconsumergroup
   failurePolicy: Fail
@@ -2930,7 +2930,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-insights-azure-com-v1api20180501preview-webtest
   failurePolicy: Fail
@@ -2951,7 +2951,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-insights-azure-com-v1api20200202-component
   failurePolicy: Fail
@@ -2972,7 +2972,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-insights-azure-com-v1beta20180501preview-webtest
   failurePolicy: Fail
@@ -2993,7 +2993,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-insights-azure-com-v1beta20200202-component
   failurePolicy: Fail
@@ -3014,7 +3014,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-keyvault-azure-com-v1api20210401preview-vault
   failurePolicy: Fail
@@ -3035,7 +3035,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-keyvault-azure-com-v1beta20210401preview-vault
   failurePolicy: Fail
@@ -3056,7 +3056,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-machinelearningservices-azure-com-v1api20210701-workspace
   failurePolicy: Fail
@@ -3077,7 +3077,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-machinelearningservices-azure-com-v1api20210701-workspacescompute
   failurePolicy: Fail
@@ -3098,7 +3098,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-machinelearningservices-azure-com-v1api20210701-workspacesconnection
   failurePolicy: Fail
@@ -3119,7 +3119,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-machinelearningservices-azure-com-v1beta20210701-workspace
   failurePolicy: Fail
@@ -3140,7 +3140,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-machinelearningservices-azure-com-v1beta20210701-workspacescompute
   failurePolicy: Fail
@@ -3161,7 +3161,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-machinelearningservices-azure-com-v1beta20210701-workspacesconnection
   failurePolicy: Fail
@@ -3182,7 +3182,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-managedidentity-azure-com-v1api20181130-userassignedidentity
   failurePolicy: Fail
@@ -3203,7 +3203,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-managedidentity-azure-com-v1api20220131preview-federatedidentitycredential
   failurePolicy: Fail
@@ -3224,7 +3224,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-managedidentity-azure-com-v1beta20181130-userassignedidentity
   failurePolicy: Fail
@@ -3245,7 +3245,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-managedidentity-azure-com-v1beta20220131preview-federatedidentitycredential
   failurePolicy: Fail
@@ -3266,7 +3266,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszone
   failurePolicy: Fail
@@ -3287,7 +3287,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonesaaaarecord
   failurePolicy: Fail
@@ -3308,7 +3308,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonesarecord
   failurePolicy: Fail
@@ -3329,7 +3329,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonescaarecord
   failurePolicy: Fail
@@ -3350,7 +3350,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonescnamerecord
   failurePolicy: Fail
@@ -3371,7 +3371,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonesmxrecord
   failurePolicy: Fail
@@ -3392,7 +3392,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonesnsrecord
   failurePolicy: Fail
@@ -3413,7 +3413,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonesptrrecord
   failurePolicy: Fail
@@ -3434,7 +3434,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonessrvrecord
   failurePolicy: Fail
@@ -3455,7 +3455,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180501-dnszonestxtrecord
   failurePolicy: Fail
@@ -3476,7 +3476,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20180901-privatednszone
   failurePolicy: Fail
@@ -3497,7 +3497,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonesaaaarecord
   failurePolicy: Fail
@@ -3518,7 +3518,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonesarecord
   failurePolicy: Fail
@@ -3539,7 +3539,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonescnamerecord
   failurePolicy: Fail
@@ -3560,7 +3560,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonesmxrecord
   failurePolicy: Fail
@@ -3581,7 +3581,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonesptrrecord
   failurePolicy: Fail
@@ -3602,7 +3602,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonessrvrecord
   failurePolicy: Fail
@@ -3623,7 +3623,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonestxtrecord
   failurePolicy: Fail
@@ -3644,7 +3644,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20200601-privatednszonesvirtualnetworklink
   failurePolicy: Fail
@@ -3665,7 +3665,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-loadbalancer
   failurePolicy: Fail
@@ -3686,7 +3686,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-loadbalancersinboundnatrule
   failurePolicy: Fail
@@ -3707,7 +3707,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-networkinterface
   failurePolicy: Fail
@@ -3728,7 +3728,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-networksecuritygroup
   failurePolicy: Fail
@@ -3749,7 +3749,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-networksecuritygroupssecurityrule
   failurePolicy: Fail
@@ -3770,7 +3770,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-publicipaddress
   failurePolicy: Fail
@@ -3791,7 +3791,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-routetable
   failurePolicy: Fail
@@ -3812,7 +3812,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-routetablesroute
   failurePolicy: Fail
@@ -3833,7 +3833,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-virtualnetworkgateway
   failurePolicy: Fail
@@ -3854,7 +3854,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-virtualnetwork
   failurePolicy: Fail
@@ -3875,7 +3875,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-virtualnetworkssubnet
   failurePolicy: Fail
@@ -3896,7 +3896,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20201101-virtualnetworksvirtualnetworkpeering
   failurePolicy: Fail
@@ -3917,7 +3917,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-bastionhost
   failurePolicy: Fail
@@ -3938,7 +3938,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-dnsforwardingruleset
   failurePolicy: Fail
@@ -3959,7 +3959,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-dnsforwardingrulesetsforwardingrule
   failurePolicy: Fail
@@ -3980,7 +3980,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-dnsresolver
   failurePolicy: Fail
@@ -4001,7 +4001,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-dnsresolversinboundendpoint
   failurePolicy: Fail
@@ -4022,7 +4022,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-dnsresolversoutboundendpoint
   failurePolicy: Fail
@@ -4043,7 +4043,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-natgateway
   failurePolicy: Fail
@@ -4064,7 +4064,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-privateendpoint
   failurePolicy: Fail
@@ -4085,7 +4085,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-privateendpointsprivatednszonegroup
   failurePolicy: Fail
@@ -4106,7 +4106,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-privatelinkservice
   failurePolicy: Fail
@@ -4127,7 +4127,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1api20220701-publicipprefix
   failurePolicy: Fail
@@ -4148,7 +4148,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20180901-privatednszone
   failurePolicy: Fail
@@ -4169,7 +4169,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-loadbalancer
   failurePolicy: Fail
@@ -4190,7 +4190,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-networkinterface
   failurePolicy: Fail
@@ -4211,7 +4211,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-networksecuritygroup
   failurePolicy: Fail
@@ -4232,7 +4232,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-networksecuritygroupssecurityrule
   failurePolicy: Fail
@@ -4253,7 +4253,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-publicipaddress
   failurePolicy: Fail
@@ -4274,7 +4274,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-routetable
   failurePolicy: Fail
@@ -4295,7 +4295,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-routetablesroute
   failurePolicy: Fail
@@ -4316,7 +4316,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-virtualnetworkgateway
   failurePolicy: Fail
@@ -4337,7 +4337,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-virtualnetwork
   failurePolicy: Fail
@@ -4358,7 +4358,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-virtualnetworkssubnet
   failurePolicy: Fail
@@ -4379,7 +4379,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-network-azure-com-v1beta20201101-virtualnetworksvirtualnetworkpeering
   failurePolicy: Fail
@@ -4400,7 +4400,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-operationalinsights-azure-com-v1api20210601-workspace
   failurePolicy: Fail
@@ -4421,7 +4421,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-operationalinsights-azure-com-v1beta20210601-workspace
   failurePolicy: Fail
@@ -4442,7 +4442,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-resources-azure-com-v1api20200601-resourcegroup
   failurePolicy: Fail
@@ -4463,7 +4463,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-resources-azure-com-v1beta20200601-resourcegroup
   failurePolicy: Fail
@@ -4484,7 +4484,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-search-azure-com-v1api20220901-searchservice
   failurePolicy: Fail
@@ -4505,7 +4505,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20210101preview-namespace
   failurePolicy: Fail
@@ -4526,7 +4526,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20210101preview-namespacesauthorizationrule
   failurePolicy: Fail
@@ -4547,7 +4547,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20210101preview-namespacesqueue
   failurePolicy: Fail
@@ -4568,7 +4568,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20210101preview-namespacestopic
   failurePolicy: Fail
@@ -4589,7 +4589,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20210101preview-namespacestopicssubscription
   failurePolicy: Fail
@@ -4610,7 +4610,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20210101preview-namespacestopicssubscriptionsrule
   failurePolicy: Fail
@@ -4631,7 +4631,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20211101-namespace
   failurePolicy: Fail
@@ -4652,7 +4652,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20211101-namespacesauthorizationrule
   failurePolicy: Fail
@@ -4673,7 +4673,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20211101-namespacesqueue
   failurePolicy: Fail
@@ -4694,7 +4694,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20211101-namespacestopic
   failurePolicy: Fail
@@ -4715,7 +4715,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20211101-namespacestopicssubscription
   failurePolicy: Fail
@@ -4736,7 +4736,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20211101-namespacestopicssubscriptionsrule
   failurePolicy: Fail
@@ -4757,7 +4757,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20221001preview-namespace
   failurePolicy: Fail
@@ -4778,7 +4778,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20221001preview-namespacesauthorizationrule
   failurePolicy: Fail
@@ -4799,7 +4799,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20221001preview-namespacesqueue
   failurePolicy: Fail
@@ -4820,7 +4820,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20221001preview-namespacestopic
   failurePolicy: Fail
@@ -4841,7 +4841,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20221001preview-namespacestopicssubscription
   failurePolicy: Fail
@@ -4862,7 +4862,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1api20221001preview-namespacestopicssubscriptionsrule
   failurePolicy: Fail
@@ -4883,7 +4883,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1beta20210101preview-namespace
   failurePolicy: Fail
@@ -4904,7 +4904,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1beta20210101preview-namespacesqueue
   failurePolicy: Fail
@@ -4925,7 +4925,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1beta20210101preview-namespacestopic
   failurePolicy: Fail
@@ -4946,7 +4946,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1beta20210101preview-namespacestopicssubscription
   failurePolicy: Fail
@@ -4967,7 +4967,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-servicebus-azure-com-v1beta20210101preview-namespacestopicssubscriptionsrule
   failurePolicy: Fail
@@ -4988,7 +4988,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-signalrservice-azure-com-v1api20211001-signalr
   failurePolicy: Fail
@@ -5009,7 +5009,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-signalrservice-azure-com-v1beta20211001-signalr
   failurePolicy: Fail
@@ -5030,7 +5030,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-server
   failurePolicy: Fail
@@ -5051,7 +5051,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversadministrator
   failurePolicy: Fail
@@ -5072,7 +5072,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversadvancedthreatprotectionsetting
   failurePolicy: Fail
@@ -5093,7 +5093,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversauditingsetting
   failurePolicy: Fail
@@ -5114,7 +5114,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversazureadonlyauthentication
   failurePolicy: Fail
@@ -5135,7 +5135,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversconnectionpolicy
   failurePolicy: Fail
@@ -5156,7 +5156,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabase
   failurePolicy: Fail
@@ -5177,7 +5177,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabasesadvancedthreatprotectionsetting
   failurePolicy: Fail
@@ -5198,7 +5198,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabasesauditingsetting
   failurePolicy: Fail
@@ -5219,7 +5219,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabasesbackuplongtermretentionpolicy
   failurePolicy: Fail
@@ -5240,7 +5240,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabasesbackupshorttermretentionpolicy
   failurePolicy: Fail
@@ -5261,7 +5261,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabasessecurityalertpolicy
   failurePolicy: Fail
@@ -5282,7 +5282,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabasestransparentdataencryption
   failurePolicy: Fail
@@ -5303,7 +5303,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversdatabasesvulnerabilityassessment
   failurePolicy: Fail
@@ -5324,7 +5324,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serverselasticpool
   failurePolicy: Fail
@@ -5345,7 +5345,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversfailovergroup
   failurePolicy: Fail
@@ -5366,7 +5366,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversfirewallrule
   failurePolicy: Fail
@@ -5387,7 +5387,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversipv6firewallrule
   failurePolicy: Fail
@@ -5408,7 +5408,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversoutboundfirewallrule
   failurePolicy: Fail
@@ -5429,7 +5429,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serverssecurityalertpolicy
   failurePolicy: Fail
@@ -5450,7 +5450,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversvirtualnetworkrule
   failurePolicy: Fail
@@ -5471,7 +5471,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-sql-azure-com-v1api20211101-serversvulnerabilityassessment
   failurePolicy: Fail
@@ -5492,7 +5492,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20210401-storageaccount
   failurePolicy: Fail
@@ -5513,7 +5513,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20210401-storageaccountsblobservice
   failurePolicy: Fail
@@ -5534,7 +5534,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20210401-storageaccountsblobservicescontainer
   failurePolicy: Fail
@@ -5555,7 +5555,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20210401-storageaccountsmanagementpolicy
   failurePolicy: Fail
@@ -5576,7 +5576,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20210401-storageaccountsqueueservice
   failurePolicy: Fail
@@ -5597,7 +5597,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20210401-storageaccountsqueueservicesqueue
   failurePolicy: Fail
@@ -5618,7 +5618,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccount
   failurePolicy: Fail
@@ -5639,7 +5639,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountsblobservice
   failurePolicy: Fail
@@ -5660,7 +5660,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountsblobservicescontainer
   failurePolicy: Fail
@@ -5681,7 +5681,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountsfileservice
   failurePolicy: Fail
@@ -5702,7 +5702,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountsfileservicesshare
   failurePolicy: Fail
@@ -5723,7 +5723,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountsmanagementpolicy
   failurePolicy: Fail
@@ -5744,7 +5744,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountsqueueservice
   failurePolicy: Fail
@@ -5765,7 +5765,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountsqueueservicesqueue
   failurePolicy: Fail
@@ -5786,7 +5786,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountstableservice
   failurePolicy: Fail
@@ -5807,7 +5807,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1api20220901-storageaccountstableservicestable
   failurePolicy: Fail
@@ -5828,7 +5828,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1beta20210401-storageaccount
   failurePolicy: Fail
@@ -5849,7 +5849,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1beta20210401-storageaccountsblobservice
   failurePolicy: Fail
@@ -5870,7 +5870,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1beta20210401-storageaccountsblobservicescontainer
   failurePolicy: Fail
@@ -5891,7 +5891,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1beta20210401-storageaccountsmanagementpolicy
   failurePolicy: Fail
@@ -5912,7 +5912,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1beta20210401-storageaccountsqueueservice
   failurePolicy: Fail
@@ -5933,7 +5933,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-storage-azure-com-v1beta20210401-storageaccountsqueueservicesqueue
   failurePolicy: Fail
@@ -5954,7 +5954,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-subscription-azure-com-v1api20211001-alias
   failurePolicy: Fail
@@ -5975,7 +5975,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-subscription-azure-com-v1beta20211001-alias
   failurePolicy: Fail
@@ -5996,7 +5996,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-synapse-azure-com-v1api20210601-workspace
   failurePolicy: Fail
@@ -6017,7 +6017,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-synapse-azure-com-v1api20210601-workspacesbigdatapool
   failurePolicy: Fail
@@ -6038,7 +6038,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-web-azure-com-v1api20220301-serverfarm
   failurePolicy: Fail
@@ -6059,7 +6059,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-web-azure-com-v1api20220301-site
   failurePolicy: Fail
@@ -6080,7 +6080,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-web-azure-com-v1beta20220301-serverfarm
   failurePolicy: Fail
@@ -6101,7 +6101,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+      name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
       path: /mutate-web-azure-com-v1beta20220301-site
   failurePolicy: Fail

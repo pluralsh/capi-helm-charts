@@ -6,8 +6,8 @@ metadata:
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
 spec:
   dnsNames:
-  - '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service.{{ .Release.Namespace }}.svc'
-  - '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service.{{ .Release.Namespace }}.svc.{{ .Values.kubernetesClusterDomain }}'
+  - 'azureserviceoperator-webhook-service.{{ .Release.Namespace }}.svc'
+  - 'azureserviceoperator-webhook-service.{{ .Release.Namespace }}.svc.{{ .Values.kubernetesClusterDomain }}'
   issuerRef:
     kind: Issuer
     name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-selfsigned-issuer'
