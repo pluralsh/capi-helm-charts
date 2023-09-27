@@ -406,6 +406,13 @@ spec:
                         description: 'Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels'
                         type: object
                     type: object
+                  namingStrategy:
+                    description: NamingStrategy allows changing the naming pattern used when creating the control plane provider object.
+                    properties:
+                      template:
+                        description: 'Template defines the template to use for generating the name of the ControlPlane object. If not defined, it will fallback to `{{ .cluster.name }}-{{ .random }}`. If the templated string exceeds 63 characters, it will be trimmed to 58 characters and will get concatenated with a random suffix of length 5. The templating mechanism provides the following arguments: * `.cluster.name`: The name of the cluster object. * `.random`: A random alphanumeric string, without vowels, of length 5.'
+                        type: string
+                    type: object
                   nodeDeletionTimeout:
                     description: 'NodeDeletionTimeout defines how long the controller will attempt to delete the Node that the Machine hosts after the Machine is marked for deletion. A duration of 0 will retry deletion indefinitely. Defaults to 10 seconds. NOTE: This value can be overridden while defining a Cluster.Topology.'
                     type: string
@@ -766,6 +773,13 @@ spec:
                           description: 'Minimum number of seconds for which a newly created machine should be ready. Defaults to 0 (machine will be considered available as soon as it is ready) NOTE: This value can be overridden while defining a Cluster.Topology using this MachineDeploymentClass.'
                           format: int32
                           type: integer
+                        namingStrategy:
+                          description: NamingStrategy allows changing the naming pattern used when creating the MachineDeployment.
+                          properties:
+                            template:
+                              description: 'Template defines the template to use for generating the name of the MachineDeployment object. If not defined, it will fallback to `{{ .cluster.name }}-{{ .machineDeployment.topologyName }}-{{ .random }}`. If the templated string exceeds 63 characters, it will be trimmed to 58 characters and will get concatenated with a random suffix of length 5. The templating mechanism provides the following arguments: * `.cluster.name`: The name of the cluster object. * `.random`: A random alphanumeric string, without vowels, of length 5. * `.machineDeployment.topologyName`: The name of the MachineDeployment topology (Cluster.spec.topology.workers.machineDeployments[].name).'
+                              type: string
+                          type: object
                         nodeDeletionTimeout:
                           description: 'NodeDeletionTimeout defines how long the controller will attempt to delete the Node that the Machine hosts after the Machine is marked for deletion. A duration of 0 will retry deletion indefinitely. Defaults to 10 seconds. NOTE: This value can be overridden while defining a Cluster.Topology using this MachineDeploymentClass.'
                           type: string

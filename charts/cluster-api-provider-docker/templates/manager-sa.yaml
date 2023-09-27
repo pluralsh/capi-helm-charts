@@ -1,16 +1,16 @@
-{{- if .Values.serviceAccount.create }}
+{{- if .Values.serviceAccounts.capdManager.create }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "cluster-api-provider-docker.serviceAccountName" . }}
+  name: {{ include "cluster-api-provider-docker.managerServiceAccountName" . }}
   labels:
     cluster.x-k8s.io/provider: infrastructure-docker
   {{- include "cluster-api-provider-docker.labels" . | nindent 4 }}
-  {{- with .Values.serviceAccount.labels }}
+  {{- with .Values.serviceAccounts.capdManager.labels }}
   {{ toYaml . | nindent 4 }}
   {{- end }}
   annotations:
-  {{- with .Values.serviceAccount.annotations }}
+  {{- with .Values.serviceAccounts.capdManager.annotations }}
   {{- toYaml . | nindent 4 }}
   {{- end }}
 {{- end }}

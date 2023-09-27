@@ -31,11 +31,12 @@ imagePullSecrets: []
 kubernetesClusterDomain: cluster.local
 managerBootstrapCredentials:
   credentialsJson: ""
-serviceAccount:
-  annotations: {}
-  create: true
-  labels: {}
-  name: ""
+serviceAccounts:
+  manager:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
 webhookService:
   ports:
     - port: 443

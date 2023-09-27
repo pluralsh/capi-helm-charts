@@ -77,7 +77,7 @@ spec:
           name: dockersock
       imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
       nodeSelector: {{- toYaml .Values.controllerManager.nodeSelector | nindent 8 }}
-      serviceAccountName: {{ include "cluster-api-provider-docker.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-provider-docker.managerServiceAccountName" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule

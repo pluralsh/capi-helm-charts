@@ -19,7 +19,7 @@ controllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api/cluster-api-controller
-      tag: v1.5.1
+      tag: v1.5.2
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
@@ -30,11 +30,12 @@ crds:
   create: true
 imagePullSecrets: []
 kubernetesClusterDomain: cluster.local
-serviceAccount:
-  annotations: {}
-  create: true
-  labels: {}
-  name: ""
+serviceAccounts:
+  manager:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
 webhookService:
   ports:
   - port: 443
