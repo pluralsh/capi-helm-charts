@@ -46,10 +46,6 @@ jobs:
           helm repo update
           helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --set installCRDs=true
 
-      - name: Install cluster-api-core chart
-        run: |
-          helm install cluster-api-core capi/cluster-api-core --namespace cluster-api-core --create-namespace
-
       - name: Run chart-testing (install)
         run: ct install --config ./.github/configs/ct-install.yaml
         if: steps.list-changed.outputs.changed == 'true'
