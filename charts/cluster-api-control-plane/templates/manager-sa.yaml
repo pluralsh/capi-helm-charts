@@ -1,4 +1,4 @@
-{{- if .Values.serviceAccounts.capiKubeadmControlPlaneManager.create }}
+{{- if .Values.serviceAccounts.manager.create }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -6,11 +6,11 @@ metadata:
   labels:
     cluster.x-k8s.io/provider: control-plane-kubeadm
   {{- include "cluster-api-control-plane.labels" . | nindent 4 }}
-  {{- with .Values.serviceAccounts.capiKubeadmControlPlaneManager.labels }}
+  {{- with .Values.serviceAccounts.manager.labels }}
   {{ toYaml . | nindent 4 }}
   {{- end }}
   annotations:
-  {{- with .Values.serviceAccounts.capiKubeadmControlPlaneManager.annotations }}
+  {{- with .Values.serviceAccounts.manager.annotations }}
   {{- toYaml . | nindent 4 }}
   {{- end }}
 {{- end }}
