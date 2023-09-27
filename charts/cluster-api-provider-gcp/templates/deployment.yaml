@@ -84,7 +84,7 @@ spec:
           name: credentials
       imagePullSecrets: {{ .Values.imagePullSecrets | default list | toJson }}
       nodeSelector: {{- toYaml .Values.controllerManager.nodeSelector | nindent 8 }}
-      serviceAccountName: {{ include "cluster-api-provider-gcp.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-provider-gcp.managerServiceAccountName" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule

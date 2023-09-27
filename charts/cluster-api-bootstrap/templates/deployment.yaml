@@ -68,7 +68,7 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: {{ include "cluster-api-bootstrap.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-bootstrap.managerServiceAccountName" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule

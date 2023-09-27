@@ -1,16 +1,16 @@
-{{- if .Values.serviceAccount.create }}
+{{- if .Values.serviceAccounts.capiKubeadmBootstrapManager.create }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "cluster-api-bootstrap.serviceAccountName" . }}
+  name: {{ include "cluster-api-bootstrap.managerServiceAccountName" . }}
   labels:
     cluster.x-k8s.io/provider: bootstrap-kubeadm
   {{- include "cluster-api-bootstrap.labels" . | nindent 4 }}
-  {{- with .Values.serviceAccount.labels }}
+  {{- with .Values.serviceAccounts.capiKubeadmBootstrapManager.labels }}
   {{ toYaml . | nindent 4 }}
   {{- end }}
   annotations:
-  {{- with .Values.serviceAccount.annotations }}
+  {{- with .Values.serviceAccounts.capiKubeadmBootstrapManager.annotations }}
   {{- toYaml . | nindent 4 }}
   {{- end }}
 {{- end }}

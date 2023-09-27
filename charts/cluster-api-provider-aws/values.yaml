@@ -51,14 +51,17 @@ metricsService:
       protocol: TCP
       targetPort: metrics
   type: ClusterIP
-serviceAccount:
-  annotations: {}
-  create: true
-  labels: {}
-  name: ""
+serviceAccounts:
+  controllerManager:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
 webhookService:
   ports:
     - port: 443
       targetPort: webhook-server
   type: ClusterIP
+nameOverride: capa
+fullnameOverride: ""
 bootstrapMode: true
