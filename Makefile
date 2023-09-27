@@ -147,6 +147,10 @@ azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so
 		$(YQ) -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' charts/cluster-api-provider-azure/Chart.yaml; \
 	fi
 
+# Replaces the templated name for the ASO service to the hardcoded one since ASO will update the CRD and use a hardcoded service name
+# TODO: remove once upstream ignores the service name in their CRD change detection logic
+	find charts/cluster-api-provider-azure/templates -type f -name '*.yaml' | xargs $(SED) -i 's/{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service/azureserviceoperator-webhook-service/g'
+
 gcp: kustomize helmify yq
 	curl -OL https://github.com/kubernetes-sigs/cluster-api-provider-gcp/releases/download/${GCP_VERSION}/infrastructure-components.yaml
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-provider-gcp/crds/provider-crd.yaml

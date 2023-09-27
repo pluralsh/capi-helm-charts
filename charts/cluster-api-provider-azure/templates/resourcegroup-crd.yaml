@@ -15,7 +15,7 @@ spec:
     webhook:
       clientConfig:
         service:
-          name: '{{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service'
+          name: 'azureserviceoperator-webhook-service'
           namespace: '{{ .Release.Namespace }}'
           path: /convert
           port: 443

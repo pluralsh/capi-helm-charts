@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "cluster-api-provider-azure.fullname" . }}-aso-webhook-service
+  name: azureserviceoperator-webhook-service
   labels:
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
 spec:
