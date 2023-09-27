@@ -39,6 +39,11 @@ core: kustomize helmify yq
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-core/crds/provider-crd.yaml
 	cat core-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-core
 	rm core-components.yaml
+
+# Remove some double curly brackets in the CRD description since helm will try to template them
+	$(SED) -i 's/{{ .cluster.name }}-{{ .random }}/{ .cluster.name }-{ .random }/g' charts/cluster-api-core/templates/clusterclass-crd.yaml
+	$(SED) -i 's/{{ .cluster.name }}-{{ .machineDeployment.topologyName }}-{{ .random }}/{ .cluster.name }-{ .machineDeployment.topologyName }-{ .random }/g' charts/cluster-api-core/templates/clusterclass-crd.yaml
+
 	$(YQ) -i ".nameOverride=\"\" | .fullnameOverride=\"\"" charts/cluster-api-core/values.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-core/Chart.yaml) != "${CORE_VERSION}" ]; then \
 		echo "Updating Core appVersion and chart version"; \

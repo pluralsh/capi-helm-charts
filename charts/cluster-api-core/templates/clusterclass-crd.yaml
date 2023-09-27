@@ -410,7 +410,7 @@ spec:
                     description: NamingStrategy allows changing the naming pattern used when creating the control plane provider object.
                     properties:
                       template:
-                        description: 'Template defines the template to use for generating the name of the ControlPlane object. If not defined, it will fallback to `{{ .cluster.name }}-{{ .random }}`. If the templated string exceeds 63 characters, it will be trimmed to 58 characters and will get concatenated with a random suffix of length 5. The templating mechanism provides the following arguments: * `.cluster.name`: The name of the cluster object. * `.random`: A random alphanumeric string, without vowels, of length 5.'
+                        description: 'Template defines the template to use for generating the name of the ControlPlane object. If not defined, it will fallback to `{ .cluster.name }-{ .random }`. If the templated string exceeds 63 characters, it will be trimmed to 58 characters and will get concatenated with a random suffix of length 5. The templating mechanism provides the following arguments: * `.cluster.name`: The name of the cluster object. * `.random`: A random alphanumeric string, without vowels, of length 5.'
                         type: string
                     type: object
                   nodeDeletionTimeout:
@@ -777,7 +777,7 @@ spec:
                           description: NamingStrategy allows changing the naming pattern used when creating the MachineDeployment.
                           properties:
                             template:
-                              description: 'Template defines the template to use for generating the name of the MachineDeployment object. If not defined, it will fallback to `{{ .cluster.name }}-{{ .machineDeployment.topologyName }}-{{ .random }}`. If the templated string exceeds 63 characters, it will be trimmed to 58 characters and will get concatenated with a random suffix of length 5. The templating mechanism provides the following arguments: * `.cluster.name`: The name of the cluster object. * `.random`: A random alphanumeric string, without vowels, of length 5. * `.machineDeployment.topologyName`: The name of the MachineDeployment topology (Cluster.spec.topology.workers.machineDeployments[].name).'
+                              description: 'Template defines the template to use for generating the name of the MachineDeployment object. If not defined, it will fallback to `{ .cluster.name }-{ .machineDeployment.topologyName }-{ .random }`. If the templated string exceeds 63 characters, it will be trimmed to 58 characters and will get concatenated with a random suffix of length 5. The templating mechanism provides the following arguments: * `.cluster.name`: The name of the cluster object. * `.random`: A random alphanumeric string, without vowels, of length 5. * `.machineDeployment.topologyName`: The name of the MachineDeployment topology (Cluster.spec.topology.workers.machineDeployments[].name).'
                               type: string
                           type: object
                         nodeDeletionTimeout:
