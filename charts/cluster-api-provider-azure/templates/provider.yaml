@@ -8,4 +8,4 @@ metadata:
   name: infrastructure-azure
 providerName: azure
 type: InfrastructureProvider
-version: {{ .Values.controllerManager.manager.image.tag | default .Chart.AppVersion }}
+version: {{ .Values.capzControllerManager.manager.image.tag | default .Chart.AppVersion }}
