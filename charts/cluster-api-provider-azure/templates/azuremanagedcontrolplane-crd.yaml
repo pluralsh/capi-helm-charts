@@ -343,6 +343,7 @@ spec:
                     enum:
                     - Free
                     - Paid
+                    - Standard
                     type: string
                 required:
                 - tier
