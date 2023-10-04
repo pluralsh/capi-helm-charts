@@ -88,7 +88,7 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: {{ include "cluster-api-provider-aws.serviceAccountName" . }}
+      serviceAccountName: {{ include "cluster-api-provider-aws.controllerManagerServiceAccountName" . }}
       terminationGracePeriodSeconds: 10
       tolerations:
       - effect: NoSchedule

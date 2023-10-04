@@ -1,7 +1,7 @@
-CORE_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
-CONTROL_PLANE_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
-BOOTSTRAP_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
-DOCKER_VERSION=v1.5.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+CORE_VERSION=v1.5.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+CONTROL_PLANE_VERSION=v1.5.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+BOOTSTRAP_VERSION=v1.5.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+DOCKER_VERSION=v1.5.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 AWS_VERSION=v2.2.2# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-aws
 AZURE_VERSION=v1.11.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
 GCP_VERSION=v1.4.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
@@ -39,6 +39,12 @@ core: kustomize helmify yq
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-core/crds/provider-crd.yaml
 	cat core-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-core
 	rm core-components.yaml
+
+# Remove some double curly brackets in the CRD description since helm will try to template them
+	$(SED) -i 's/{{ .cluster.name }}-{{ .random }}/{ .cluster.name }-{ .random }/g' charts/cluster-api-core/templates/clusterclass-crd.yaml
+	$(SED) -i 's/{{ .cluster.name }}-{{ .machineDeployment.topologyName }}-{{ .random }}/{ .cluster.name }-{ .machineDeployment.topologyName }-{ .random }/g' charts/cluster-api-core/templates/clusterclass-crd.yaml
+
+	$(YQ) -i ".nameOverride=\"\" | .fullnameOverride=\"\"" charts/cluster-api-core/values.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-core/Chart.yaml) != "${CORE_VERSION}" ]; then \
 		echo "Updating Core appVersion and chart version"; \
 		$(YQ) -i ".appVersion=\"${CORE_VERSION}\"" charts/cluster-api-core/Chart.yaml; \
@@ -50,6 +56,7 @@ control-plane: kustomize helmify yq
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-control-plane/crds/provider-crd.yaml
 	cat control-plane-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-control-plane
 	rm control-plane-components.yaml
+	$(YQ) -i ".nameOverride=\"\" | .fullnameOverride=\"\"" charts/cluster-api-control-plane/values.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-control-plane/Chart.yaml) != "${CONTROL_PLANE_VERSION}" ]; then \
 		echo "Updating Control Plane appVersion and chart version"; \
 		$(YQ) -i ".appVersion=\"${CONTROL_PLANE_VERSION}\"" charts/cluster-api-control-plane/Chart.yaml; \
@@ -61,6 +68,7 @@ bootstrap: kustomize helmify yq
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-bootstrap/crds/provider-crd.yaml
 	cat bootstrap-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-bootstrap
 	rm bootstrap-components.yaml
+	$(YQ) -i ".nameOverride=\"\" | .fullnameOverride=\"\"" charts/cluster-api-bootstrap/values.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-bootstrap/Chart.yaml) != "${BOOTSTRAP_VERSION}" ]; then \
 		echo "Updating Bootstrap appVersion and chart version"; \
 		$(YQ) -i ".appVersion=\"${BOOTSTRAP_VERSION}\"" charts/cluster-api-bootstrap/Chart.yaml; \
@@ -72,7 +80,7 @@ docker: kustomize helmify yq
 	$(KUSTOMIZE) build "https://github.com/kubernetes-sigs/cluster-api/cmd/clusterctl/config/crd/?ref=${CORE_VERSION}" > charts/cluster-api-provider-docker/crds/provider-crd.yaml
 	cat infrastructure-components-development.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-provider-docker
 	rm infrastructure-components-development.yaml
-	$(YQ) -i ".configVariables.capdDockerHost=\"\"" charts/cluster-api-provider-docker/values.yaml
+	$(YQ) -i ".nameOverride=\"capd\" | .fullnameOverride=\"\" | .configVariables.capdDockerHost=\"\"" charts/cluster-api-provider-docker/values.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-provider-docker/Chart.yaml) != "${DOCKER_VERSION}" ]; then \
 		echo "Updating Docker appVersion and chart version"; \
 		$(YQ) -i ".appVersion=\"${DOCKER_VERSION}\"" charts/cluster-api-provider-docker/Chart.yaml; \
@@ -101,7 +109,7 @@ aws: kustomize helmify yq
 # Delete the secret file since we are managing that ourselves
 	rm charts/cluster-api-provider-aws/templates/manager-bootstrap-credentials.yaml
 # Add proper credentials input and the bootstrapMode toogle to easily nullify the credentials. Also set `awsControllerIamRole` to proper empty string
-	$(YQ) -i ".configVariables.awsControllerIamRole=\"\" | .bootstrapMode="true" | del(.managerBootstrapCredentials.credentials) | .managerBootstrapCredentials.AWS_ACCESS_KEY_ID=\"\" | .managerBootstrapCredentials.AWS_SECRET_ACCESS_KEY=\"\" | .managerBootstrapCredentials.AWS_REGION=\"\" | .managerBootstrapCredentials.AWS_SESSION_TOKEN=\"\"" charts/cluster-api-provider-aws/values.yaml
+	$(YQ) -i ".nameOverride=\"capa\" | .fullnameOverride=\"\" | .configVariables.awsControllerIamRole=\"\" | .bootstrapMode="true" | del(.managerBootstrapCredentials.credentials) | .managerBootstrapCredentials.AWS_ACCESS_KEY_ID=\"\" | .managerBootstrapCredentials.AWS_SECRET_ACCESS_KEY=\"\" | .managerBootstrapCredentials.AWS_REGION=\"\" | .managerBootstrapCredentials.AWS_SESSION_TOKEN=\"\"" charts/cluster-api-provider-aws/values.yaml
 
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-provider-aws/Chart.yaml) != "${AWS_VERSION}" ]; then \
 		echo "Updating AWS appVersion and chart version"; \
@@ -168,7 +176,7 @@ gcp: kustomize helmify yq
 	# Delete the secret file since we are managing that ourselves
 	rm charts/cluster-api-provider-gcp/templates/manager-bootstrap-credentials.yaml
 	# Add the bootstrapMode toggle to easily nullify the credentials.
-	$(YQ) -i ".bootstrapMode=true" charts/cluster-api-provider-gcp/values.yaml
+	$(YQ) -i ".nameOverride=\"capg\" | .fullnameOverride=\"\" | .bootstrapMode=true" charts/cluster-api-provider-gcp/values.yaml
 	# Update the GOOGLE_APPLICATION_CREDENTIALS env var in the deployment to rely on bootstrapMode
 	$(SED) -i '/name: GOOGLE_APPLICATION_CREDENTIALS/!b; n; s/value:.*/value: {{ include "cluster-api-provider-gcp.gcpCredentialsEnv" . }}/g' charts/cluster-api-provider-gcp/templates/deployment.yaml
 

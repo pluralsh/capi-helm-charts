@@ -347,5 +347,5 @@ roleRef:
   name: '{{ include "cluster-api-provider-aws.fullname" . }}-manager-role'
 subjects:
 - kind: ServiceAccount
-  name: '{{ include "cluster-api-provider-aws.serviceAccountName" . }}'
+  name: '{{ include "cluster-api-provider-aws.controllerManagerServiceAccountName" . }}'
   namespace: '{{ .Release.Namespace }}'

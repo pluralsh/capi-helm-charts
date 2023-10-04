@@ -11,7 +11,7 @@ controllerManager:
       privileged: true
     image:
       repository: gcr.io/k8s-staging-cluster-api/capd-manager
-      tag: v1.5.1
+      tag: v1.5.2
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
@@ -22,13 +22,16 @@ crds:
   create: true
 imagePullSecrets: []
 kubernetesClusterDomain: cluster.local
-serviceAccount:
-  annotations: {}
-  create: true
-  labels: {}
-  name: ""
+serviceAccounts:
+  manager:
+    annotations: {}
+    create: true
+    labels: {}
+    name: ""
 webhookService:
   ports:
     - port: 443
       targetPort: webhook-server
   type: ClusterIP
+nameOverride: capd
+fullnameOverride: ""
