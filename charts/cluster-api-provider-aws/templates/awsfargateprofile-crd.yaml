@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   name: awsfargateprofiles.infrastructure.cluster.x-k8s.io
   annotations:
-    controller-gen.kubebuilder.io/version: v0.11.3
+    controller-gen.kubebuilder.io/version: v0.12.1
   labels:
     clusterctl.cluster.x-k8s.io: ""
     cluster.x-k8s.io/provider: infrastructure-aws
