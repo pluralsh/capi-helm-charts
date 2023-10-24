@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   cluster-api-bootstrap:
   - apiVersion: v2
+    appVersion: v1.5.3
+    created: "2023-10-24T17:33:49.844921282Z"
+    description: A Helm chart for Kubernetes
+    digest: c1cc93d8f97161685bd6e2757c0c7ac08424f489c2ad59de279e0a7a85def5c3
+    maintainers:
+    - name: Plural
+      url: https://www.plural.sh
+    name: cluster-api-bootstrap
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-bootstrap-0.1.8/cluster-api-bootstrap-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
     appVersion: v1.5.2
     created: "2023-10-04T08:05:38.993389722Z"
     description: A Helm chart for Kubernetes
@@ -85,6 +98,19 @@ entries:
     version: 0.1.0
   cluster-api-control-plane:
   - apiVersion: v2
+    appVersion: v1.5.3
+    created: "2023-10-24T17:33:49.994977984Z"
+    description: A Helm chart for Kubernetes
+    digest: a1f543abb464b4c4cbce252f685d729e48bb2b0a78cd3fe212a0948c2ec69f78
+    maintainers:
+    - name: Plural
+      url: https://www.plural.sh
+    name: cluster-api-control-plane
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-control-plane-0.1.8/cluster-api-control-plane-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
     appVersion: v1.5.2
     created: "2023-10-04T08:05:39.25449652Z"
     description: A Helm chart for Kubernetes
@@ -167,6 +193,19 @@ entries:
     - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-control-plane-0.1.0/cluster-api-control-plane-0.1.0.tgz
     version: 0.1.0
   cluster-api-core:
+  - apiVersion: v2
+    appVersion: v1.5.3
+    created: "2023-10-24T17:33:50.143477262Z"
+    description: A Helm chart for Kubernetes
+    digest: e6a165e066d1199faecc150d8373afcf082b23074c45e10e4c8872c0f86cfdec
+    maintainers:
+    - name: Plural
+      url: https://www.plural.sh
+    name: cluster-api-core
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-core-0.1.9/cluster-api-core-0.1.9.tgz
+    version: 0.1.9
   - apiVersion: v2
     appVersion: v1.5.2
     created: "2023-10-04T08:05:39.423396377Z"
@@ -623,6 +662,19 @@ entries:
     version: 0.1.0
   cluster-api-provider-docker:
   - apiVersion: v2
+    appVersion: v1.5.3
+    created: "2023-10-24T17:33:50.306638374Z"
+    description: A Helm chart for Kubernetes
+    digest: bc35dea8428a55bdcf624fd6d0024f7f7a2d804e6afd8f394b728fe8cb52c087
+    maintainers:
+    - name: Plural
+      url: https://www.plural.sh
+    name: cluster-api-provider-docker
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-docker-0.1.6/cluster-api-provider-docker-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
     appVersion: v1.5.2
     created: "2023-10-04T08:05:39.935374691Z"
     description: A Helm chart for Kubernetes
@@ -748,4 +800,4 @@ entries:
     urls:
     - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-gcp-0.1.0/cluster-api-provider-gcp-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-19T22:40:58.277519826Z"
+generated: "2023-10-24T17:33:50.306872378Z"
