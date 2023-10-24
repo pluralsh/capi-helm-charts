@@ -16,7 +16,7 @@ controllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api/kubeadm-control-plane-controller
-      tag: v1.5.2
+      tag: v1.5.3
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
