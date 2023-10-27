@@ -738,6 +738,19 @@ entries:
     version: 0.1.0
   cluster-api-provider-gcp:
   - apiVersion: v2
+    appVersion: v1.4.1
+    created: "2023-10-27T15:30:18.987185971Z"
+    description: A Helm chart for Kubernetes
+    digest: 9c1760ba034ca9542a5c54bb4c60eba04a0098bf1656925a69c05f4426735201
+    maintainers:
+    - name: Plural
+      url: https://www.plural.sh
+    name: cluster-api-provider-gcp
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-gcp-0.1.6/cluster-api-provider-gcp-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
     appVersion: v1.4.0
     created: "2023-10-04T08:05:40.070006273Z"
     description: A Helm chart for Kubernetes
@@ -800,4 +813,4 @@ entries:
     urls:
     - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-gcp-0.1.0/cluster-api-provider-gcp-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-24T17:33:50.306872378Z"
+generated: "2023-10-27T15:30:18.987486878Z"
