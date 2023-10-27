@@ -4,7 +4,7 @@ BOOTSTRAP_VERSION=v1.5.3# renovate: datasource=github-releases depName=kubernete
 DOCKER_VERSION=v1.5.3# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 AWS_VERSION=v2.2.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-aws
 AZURE_VERSION=v1.11.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
-GCP_VERSION=v1.4.1# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
+GCP_VERSION=v1.5.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
 
 ## Location to install dependencies to
 LOCALBIN ?= $(shell pwd)/bin
