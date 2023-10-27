@@ -18,7 +18,7 @@ controllerManager:
       googleApplicationCredentials: /home/.gcp/credentials.json
     image:
       repository: registry.k8s.io/cluster-api-gcp/cluster-api-gcp-controller
-      tag: v1.4.0
+      tag: v1.4.1
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
