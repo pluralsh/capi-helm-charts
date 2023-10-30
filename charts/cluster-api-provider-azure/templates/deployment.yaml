@@ -22,8 +22,6 @@ spec:
     metadata:
       labels:
         aadpodidbinding: aso-manager-binding
-        app.kubernetes.io/name: azure-service-operator
-        app.kubernetes.io/version: v2.3.0
         control-plane: controller-manager
       {{- include "cluster-api-provider-azure.selectorLabels" . | nindent 8 }}
       annotations:
