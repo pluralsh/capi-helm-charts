@@ -137,6 +137,10 @@ azure: kustomize helmify yq # TODO: Looking at the raw yaml only 1 sa is used so
 # This combines the yaml files back together
 	$(YQ) eval-all tmp.yaml tmp2.yaml > infrastructure-components.yaml
 
+# This deletes app.kubernetes.io/name and app.kubernetes.io/version labels
+	$(YQ) -i 'del(.. | select(has("app.kubernetes.io/name"))."app.kubernetes.io/name")' infrastructure-components.yaml
+	$(YQ) -i 'del(.. | select(has("app.kubernetes.io/version"))."app.kubernetes.io/version")' infrastructure-components.yaml
+
 	cat infrastructure-components.yaml | $(HELMIFY) -generate-defaults -image-pull-secrets charts/cluster-api-provider-azure
 	rm infrastructure-components.yaml tmp.yaml tmp2.yaml
 
