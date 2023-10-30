@@ -450,6 +450,19 @@ entries:
   cluster-api-provider-azure:
   - apiVersion: v2
     appVersion: v1.11.4
+    created: "2023-10-30T11:31:58.145489495Z"
+    description: A Helm chart for Kubernetes
+    digest: 94e91270aeccac46fae56ad5d38d7204fd1afe1ee846ef88a7c287e8884a2816
+    maintainers:
+    - name: Plural
+      url: https://www.plural.sh
+    name: cluster-api-provider-azure
+    type: application
+    urls:
+    - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-azure-0.1.17/cluster-api-provider-azure-0.1.17.tgz
+    version: 0.1.17
+  - apiVersion: v2
+    appVersion: v1.11.4
     created: "2023-10-19T22:40:58.277269323Z"
     description: A Helm chart for Kubernetes
     digest: 1dd76681d6659fc74480e530447972e3910c59188abf5b9db625f9c028be3944
@@ -826,4 +839,4 @@ entries:
     urls:
     - https://github.com/pluralsh/capi-helm-charts/releases/download/cluster-api-provider-gcp-0.1.0/cluster-api-provider-gcp-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-27T17:42:51.668754303Z"
+generated: "2023-10-30T11:31:58.145780799Z"
