@@ -6,6 +6,195 @@ metadata:
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
 rules:
 - apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - apis
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - apis/finalizers
+  - apis/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - apiversionsets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - apiversionsets/finalizers
+  - apiversionsets/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - backends
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - backends/finalizers
+  - backends/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - namedvalues
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - namedvalues/finalizers
+  - namedvalues/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - policies
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - policies/finalizers
+  - policies/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - policyfragments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - policyfragments/finalizers
+  - policyfragments/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - products
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - products/finalizers
+  - products/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - services
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - services/finalizers
+  - services/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - subscriptions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apimanagement.azure.com
+  resources:
+  - subscriptions/finalizers
+  - subscriptions/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
   - appconfiguration.azure.com
   resources:
   - configurationstores
@@ -400,6 +589,69 @@ rules:
   resources:
   - registries/finalizers
   - registries/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleets/finalizers
+  - fleets/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleetsmembers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleetsmembers/finalizers
+  - fleetsmembers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleetsupdateruns
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleetsupdateruns/finalizers
+  - fleetsupdateruns/status
   verbs:
   - get
   - patch
@@ -1357,6 +1609,48 @@ rules:
 - apiGroups:
   - insights.azure.com
   resources:
+  - actiongroups
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - insights.azure.com
+  resources:
+  - actiongroups/finalizers
+  - actiongroups/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - insights.azure.com
+  resources:
+  - autoscalesettings
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - insights.azure.com
+  resources:
+  - autoscalesettings/finalizers
+  - autoscalesettings/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - insights.azure.com
+  resources:
   - components
   verbs:
   - create
@@ -1371,6 +1665,48 @@ rules:
   resources:
   - components/finalizers
   - components/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - insights.azure.com
+  resources:
+  - metricalerts
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - insights.azure.com
+  resources:
+  - metricalerts/finalizers
+  - metricalerts/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - insights.azure.com
+  resources:
+  - scheduledqueryrules
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - insights.azure.com
+  resources:
+  - scheduledqueryrules/finalizers
+  - scheduledqueryrules/status
   verbs:
   - get
   - patch
@@ -1413,6 +1749,27 @@ rules:
   resources:
   - vaults/finalizers
   - vaults/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - kubernetesconfiguration.azure.com
+  resources:
+  - extensions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kubernetesconfiguration.azure.com
+  resources:
+  - extensions/finalizers
+  - extensions/status
   verbs:
   - get
   - patch
@@ -1518,6 +1875,27 @@ rules:
   resources:
   - userassignedidentities/finalizers
   - userassignedidentities/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - network.azure.com
+  resources:
+  - applicationgateways
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - applicationgateways/finalizers
+  - applicationgateways/status
   verbs:
   - get
   - patch
@@ -2316,6 +2694,90 @@ rules:
   resources:
   - routetablesroutes/finalizers
   - routetablesroutes/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofiles
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofiles/finalizers
+  - trafficmanagerprofiles/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofilesazureendpoints
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofilesazureendpoints/finalizers
+  - trafficmanagerprofilesazureendpoints/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofilesexternalendpoints
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofilesexternalendpoints/finalizers
+  - trafficmanagerprofilesexternalendpoints/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofilesnestedendpoints
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - trafficmanagerprofilesnestedendpoints/finalizers
+  - trafficmanagerprofilesnestedendpoints/status
   verbs:
   - get
   - patch

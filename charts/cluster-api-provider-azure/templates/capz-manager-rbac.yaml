@@ -89,6 +89,47 @@ rules:
   - machines
   - machines/status
   verbs:
+  - delete
+  - get
+  - list
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - managedclusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - managedclusters/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - managedclustersagentpools
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - managedclustersagentpools/status
+  verbs:
   - get
   - list
   - watch
@@ -262,6 +303,26 @@ rules:
   - get
   - patch
   - update
+- apiGroups:
+  - network.azure.com
+  resources:
+  - natgateways
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - natgateways/status
+  verbs:
+  - get
+  - list
+  - watch
 - apiGroups:
   - resources.azure.com
   resources:
