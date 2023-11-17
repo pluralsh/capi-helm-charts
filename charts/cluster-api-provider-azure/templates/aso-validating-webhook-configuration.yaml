@@ -13,6 +13,195 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-api
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.apis.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - apis
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-apiversionset
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.apiversionsets.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - apiversionsets
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-backend
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.backends.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - backends
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-namedvalue
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.namedvalues.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - namedvalues
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-policy
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.policies.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - policies
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-policyfragment
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.policyfragments.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - policyfragments
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-product
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.products.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - products
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-service
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.services.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - services
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-apimanagement-azure-com-v1api20220801-subscription
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220801.subscriptions.apimanagement.azure.com
+  rules:
+  - apiGroups:
+    - apimanagement.azure.com
+    apiVersions:
+    - v1api20220801
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - subscriptions
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
       path: /validate-appconfiguration-azure-com-v1api20220501-configurationstore
   failurePolicy: Fail
   matchPolicy: Exact
@@ -22,27 +211,6 @@ webhooks:
     - appconfiguration.azure.com
     apiVersions:
     - v1api20220501
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - configurationstores
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-appconfiguration-azure-com-v1beta20220501-configurationstore
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220501.configurationstores.appconfiguration.azure.com
-  rules:
-  - apiGroups:
-    - appconfiguration.azure.com
-    apiVersions:
-    - v1beta20220501
     operations:
     - CREATE
     - UPDATE
@@ -76,15 +244,15 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-authorization-azure-com-v1beta20200801preview-roleassignment
+      path: /validate-authorization-azure-com-v1api20220401-roleassignment
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validate.v1beta20200801preview.roleassignments.authorization.azure.com
+  name: validate.v1api20220401.roleassignments.authorization.azure.com
   rules:
   - apiGroups:
     - authorization.azure.com
     apiVersions:
-    - v1beta20200801preview
+    - v1api20220401
     operations:
     - CREATE
     - UPDATE
@@ -106,27 +274,6 @@ webhooks:
     - batch.azure.com
     apiVersions:
     - v1api20210101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - batchaccounts
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-batch-azure-com-v1beta20210101-batchaccount
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210101.batchaccounts.batch.azure.com
-  rules:
-  - apiGroups:
-    - batch.azure.com
-    apiVersions:
-    - v1beta20210101
     operations:
     - CREATE
     - UPDATE
@@ -391,132 +538,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-cache-azure-com-v1beta20201201-redis
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201201.redis.cache.azure.com
-  rules:
-  - apiGroups:
-    - cache.azure.com
-    apiVersions:
-    - v1beta20201201
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - redis
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-cache-azure-com-v1beta20201201-redisfirewallrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201201.redisfirewallrules.cache.azure.com
-  rules:
-  - apiGroups:
-    - cache.azure.com
-    apiVersions:
-    - v1beta20201201
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - redisfirewallrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-cache-azure-com-v1beta20201201-redislinkedserver
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201201.redislinkedservers.cache.azure.com
-  rules:
-  - apiGroups:
-    - cache.azure.com
-    apiVersions:
-    - v1beta20201201
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - redislinkedservers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-cache-azure-com-v1beta20201201-redispatchschedule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201201.redispatchschedules.cache.azure.com
-  rules:
-  - apiGroups:
-    - cache.azure.com
-    apiVersions:
-    - v1beta20201201
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - redispatchschedules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-cache-azure-com-v1beta20210301-redisenterprisedatabase
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210301.redisenterprisedatabases.cache.azure.com
-  rules:
-  - apiGroups:
-    - cache.azure.com
-    apiVersions:
-    - v1beta20210301
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - redisenterprisedatabases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-cache-azure-com-v1beta20210301-redisenterprise
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210301.redisenterprises.cache.azure.com
-  rules:
-  - apiGroups:
-    - cache.azure.com
-    apiVersions:
-    - v1beta20210301
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - redisenterprises
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-cdn-azure-com-v1api20210601-profile
   failurePolicy: Fail
   matchPolicy: Exact
@@ -547,48 +568,6 @@ webhooks:
     - cdn.azure.com
     apiVersions:
     - v1api20210601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - profilesendpoints
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-cdn-azure-com-v1beta20210601-profile
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210601.profiles.cdn.azure.com
-  rules:
-  - apiGroups:
-    - cdn.azure.com
-    apiVersions:
-    - v1beta20210601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - profiles
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-cdn-azure-com-v1beta20210601-profilesendpoint
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210601.profilesendpoints.cdn.azure.com
-  rules:
-  - apiGroups:
-    - cdn.azure.com
-    apiVersions:
-    - v1beta20210601
     operations:
     - CREATE
     - UPDATE
@@ -790,174 +769,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20200930-disk
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20200930.disks.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20200930
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - disks
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20200930-snapshot
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20200930.snapshots.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20200930
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - snapshots
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20201201-virtualmachine
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201201.virtualmachines.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20201201
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualmachines
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20201201-virtualmachinescaleset
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201201.virtualmachinescalesets.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20201201
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualmachinescalesets
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20210701-image
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210701.images.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20210701
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - images
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20220301-image
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220301.images.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20220301
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - images
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20220301-virtualmachine
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220301.virtualmachines.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20220301
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualmachines
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-compute-azure-com-v1beta20220301-virtualmachinescaleset
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220301.virtualmachinescalesets.compute.azure.com
-  rules:
-  - apiGroups:
-    - compute.azure.com
-    apiVersions:
-    - v1beta20220301
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualmachinescalesets
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-containerinstance-azure-com-v1api20211001-containergroup
   failurePolicy: Fail
   matchPolicy: Exact
@@ -979,27 +790,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-containerinstance-azure-com-v1beta20211001-containergroup
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20211001.containergroups.containerinstance.azure.com
-  rules:
-  - apiGroups:
-    - containerinstance.azure.com
-    apiVersions:
-    - v1beta20211001
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - containergroups
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-containerregistry-azure-com-v1api20210901-registry
   failurePolicy: Fail
   matchPolicy: Exact
@@ -1009,27 +799,6 @@ webhooks:
     - containerregistry.azure.com
     apiVersions:
     - v1api20210901
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - registries
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-containerregistry-azure-com-v1beta20210901-registry
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210901.registries.containerregistry.azure.com
-  rules:
-  - apiGroups:
-    - containerregistry.azure.com
-    apiVersions:
-    - v1beta20210901
     operations:
     - CREATE
     - UPDATE
@@ -1189,20 +958,20 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-containerservice-azure-com-v1beta20210501-managedcluster
+      path: /validate-containerservice-azure-com-v1api20230315preview-fleet
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validate.v1beta20210501.managedclusters.containerservice.azure.com
+  name: validate.v1api20230315preview.fleets.containerservice.azure.com
   rules:
   - apiGroups:
     - containerservice.azure.com
     apiVersions:
-    - v1beta20210501
+    - v1api20230315preview
     operations:
     - CREATE
     - UPDATE
     resources:
-    - managedclusters
+    - fleets
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -1210,20 +979,41 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-containerservice-azure-com-v1beta20210501-managedclustersagentpool
+      path: /validate-containerservice-azure-com-v1api20230315preview-fleetsmember
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validate.v1beta20210501.managedclustersagentpools.containerservice.azure.com
+  name: validate.v1api20230315preview.fleetsmembers.containerservice.azure.com
   rules:
   - apiGroups:
     - containerservice.azure.com
     apiVersions:
-    - v1beta20210501
+    - v1api20230315preview
     operations:
     - CREATE
     - UPDATE
     resources:
-    - managedclustersagentpools
+    - fleetsmembers
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-containerservice-azure-com-v1api20230315preview-fleetsupdaterun
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20230315preview.fleetsupdateruns.containerservice.azure.com
+  rules:
+  - apiGroups:
+    - containerservice.azure.com
+    apiVersions:
+    - v1api20230315preview
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - fleetsupdateruns
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -1357,69 +1147,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbformariadb-azure-com-v1beta20180601-configuration
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20180601.configurations.dbformariadb.azure.com
-  rules:
-  - apiGroups:
-    - dbformariadb.azure.com
-    apiVersions:
-    - v1beta20180601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - configurations
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbformariadb-azure-com-v1beta20180601-database
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20180601.databases.dbformariadb.azure.com
-  rules:
-  - apiGroups:
-    - dbformariadb.azure.com
-    apiVersions:
-    - v1beta20180601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - databases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbformariadb-azure-com-v1beta20180601-server
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20180601.servers.dbformariadb.azure.com
-  rules:
-  - apiGroups:
-    - dbformariadb.azure.com
-    apiVersions:
-    - v1beta20180601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - servers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-dbformysql-azure-com-v1api20210501-flexibleserver
   failurePolicy: Fail
   matchPolicy: Exact
@@ -1525,69 +1252,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbformysql-azure-com-v1beta20210501-flexibleserver
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210501.flexibleservers.dbformysql.azure.com
-  rules:
-  - apiGroups:
-    - dbformysql.azure.com
-    apiVersions:
-    - v1beta20210501
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleservers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbformysql-azure-com-v1beta20210501-flexibleserversdatabase
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210501.flexibleserversdatabases.dbformysql.azure.com
-  rules:
-  - apiGroups:
-    - dbformysql.azure.com
-    apiVersions:
-    - v1beta20210501
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversdatabases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbformysql-azure-com-v1beta20210501-flexibleserversfirewallrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210501.flexibleserversfirewallrules.dbformysql.azure.com
-  rules:
-  - apiGroups:
-    - dbformysql.azure.com
-    apiVersions:
-    - v1beta20210501
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversfirewallrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-dbformysql-azure-com-v1-user
   failurePolicy: Fail
   matchPolicy: Exact
@@ -1597,27 +1261,6 @@ webhooks:
     - dbformysql.azure.com
     apiVersions:
     - v1
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - users
-  sideEffects: None
-- admissionReviewVersions:
-  - v1beta1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbformysql-azure-com-v1beta1-user
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta1.users.dbformysql.azure.com
-  rules:
-  - apiGroups:
-    - dbformysql.azure.com
-    apiVersions:
-    - v1beta1
     operations:
     - CREATE
     - UPDATE
@@ -1786,174 +1429,6 @@ webhooks:
     - dbforpostgresql.azure.com
     apiVersions:
     - v1api20220120preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversfirewallrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20210601-flexibleserver
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210601.flexibleservers.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20210601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleservers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20210601-flexibleserversconfiguration
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210601.flexibleserversconfigurations.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20210601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversconfigurations
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20210601-flexibleserversdatabase
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210601.flexibleserversdatabases.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20210601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversdatabases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20210601-flexibleserversfirewallrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210601.flexibleserversfirewallrules.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20210601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversfirewallrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserver
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220120preview.flexibleservers.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20220120preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleservers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserversconfiguration
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220120preview.flexibleserversconfigurations.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20220120preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversconfigurations
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserversdatabase
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220120preview.flexibleserversdatabases.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20220120preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - flexibleserversdatabases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-dbforpostgresql-azure-com-v1beta20220120preview-flexibleserversfirewallrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220120preview.flexibleserversfirewallrules.dbforpostgresql.azure.com
-  rules:
-  - apiGroups:
-    - dbforpostgresql.azure.com
-    apiVersions:
-    - v1beta20220120preview
     operations:
     - CREATE
     - UPDATE
@@ -2281,279 +1756,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-databaseaccount
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.databaseaccounts.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - databaseaccounts
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-mongodbdatabasecollection
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.mongodbdatabasecollections.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - mongodbdatabasecollections
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-mongodbdatabasecollectionthroughputsetting
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.mongodbdatabasecollectionthroughputsettings.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - mongodbdatabasecollectionthroughputsettings
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-mongodbdatabase
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.mongodbdatabases.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - mongodbdatabases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-mongodbdatabasethroughputsetting
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.mongodbdatabasethroughputsettings.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - mongodbdatabasethroughputsettings
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqldatabasecontainer
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqldatabasecontainers.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqldatabasecontainers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqldatabasecontainerstoredprocedure
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqldatabasecontainerstoredprocedures.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqldatabasecontainerstoredprocedures
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqldatabasecontainerthroughputsetting
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqldatabasecontainerthroughputsettings.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqldatabasecontainerthroughputsettings
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqldatabasecontainertrigger
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqldatabasecontainertriggers.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqldatabasecontainertriggers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqldatabasecontaineruserdefinedfunction
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqldatabasecontaineruserdefinedfunctions.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqldatabasecontaineruserdefinedfunctions
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqldatabase
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqldatabases.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqldatabases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqldatabasethroughputsetting
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqldatabasethroughputsettings.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqldatabasethroughputsettings
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-documentdb-azure-com-v1beta20210515-sqlroleassignment
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210515.sqlroleassignments.documentdb.azure.com
-  rules:
-  - apiGroups:
-    - documentdb.azure.com
-    apiVersions:
-    - v1beta20210515
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sqlroleassignments
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-eventgrid-azure-com-v1api20200601-domain
   failurePolicy: Fail
   matchPolicy: Exact
@@ -2626,90 +1828,6 @@ webhooks:
     - eventgrid.azure.com
     apiVersions:
     - v1api20200601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - topics
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventgrid-azure-com-v1beta20200601-domain
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20200601.domains.eventgrid.azure.com
-  rules:
-  - apiGroups:
-    - eventgrid.azure.com
-    apiVersions:
-    - v1beta20200601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - domains
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventgrid-azure-com-v1beta20200601-domainstopic
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20200601.domainstopics.eventgrid.azure.com
-  rules:
-  - apiGroups:
-    - eventgrid.azure.com
-    apiVersions:
-    - v1beta20200601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - domainstopics
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventgrid-azure-com-v1beta20200601-eventsubscription
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20200601.eventsubscriptions.eventgrid.azure.com
-  rules:
-  - apiGroups:
-    - eventgrid.azure.com
-    apiVersions:
-    - v1beta20200601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - eventsubscriptions
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventgrid-azure-com-v1beta20200601-topic
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20200601.topics.eventgrid.azure.com
-  rules:
-  - apiGroups:
-    - eventgrid.azure.com
-    apiVersions:
-    - v1beta20200601
     operations:
     - CREATE
     - UPDATE
@@ -2827,104 +1945,20 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventhub-azure-com-v1beta20211101-namespace
+      path: /validate-insights-azure-com-v1api20180301-metricalert
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validate.v1beta20211101.namespaces.eventhub.azure.com
+  name: validate.v1api20180301.metricalerts.insights.azure.com
   rules:
   - apiGroups:
-    - eventhub.azure.com
+    - insights.azure.com
     apiVersions:
-    - v1beta20211101
+    - v1api20180301
     operations:
     - CREATE
     - UPDATE
     resources:
-    - namespaces
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventhub-azure-com-v1beta20211101-namespacesauthorizationrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20211101.namespacesauthorizationrules.eventhub.azure.com
-  rules:
-  - apiGroups:
-    - eventhub.azure.com
-    apiVersions:
-    - v1beta20211101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespacesauthorizationrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventhub-azure-com-v1beta20211101-namespaceseventhub
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20211101.namespaceseventhubs.eventhub.azure.com
-  rules:
-  - apiGroups:
-    - eventhub.azure.com
-    apiVersions:
-    - v1beta20211101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespaceseventhubs
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventhub-azure-com-v1beta20211101-namespaceseventhubsauthorizationrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20211101.namespaceseventhubsauthorizationrules.eventhub.azure.com
-  rules:
-  - apiGroups:
-    - eventhub.azure.com
-    apiVersions:
-    - v1beta20211101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespaceseventhubsauthorizationrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-eventhub-azure-com-v1beta20211101-namespaceseventhubsconsumergroup
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20211101.namespaceseventhubsconsumergroups.eventhub.azure.com
-  rules:
-  - apiGroups:
-    - eventhub.azure.com
-    apiVersions:
-    - v1beta20211101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespaceseventhubsconsumergroups
+    - metricalerts
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -2974,20 +2008,20 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-insights-azure-com-v1beta20180501preview-webtest
+      path: /validate-insights-azure-com-v1api20220615-scheduledqueryrule
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validate.v1beta20180501preview.webtests.insights.azure.com
+  name: validate.v1api20220615.scheduledqueryrules.insights.azure.com
   rules:
   - apiGroups:
     - insights.azure.com
     apiVersions:
-    - v1beta20180501preview
+    - v1api20220615
     operations:
     - CREATE
     - UPDATE
     resources:
-    - webtests
+    - scheduledqueryrules
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -2995,20 +2029,41 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-insights-azure-com-v1beta20200202-component
+      path: /validate-insights-azure-com-v1api20221001-autoscalesetting
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validate.v1beta20200202.components.insights.azure.com
+  name: validate.v1api20221001.autoscalesettings.insights.azure.com
   rules:
   - apiGroups:
     - insights.azure.com
     apiVersions:
-    - v1beta20200202
+    - v1api20221001
     operations:
     - CREATE
     - UPDATE
     resources:
-    - components
+    - autoscalesettings
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-insights-azure-com-v1api20230101-actiongroup
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20230101.actiongroups.insights.azure.com
+  rules:
+  - apiGroups:
+    - insights.azure.com
+    apiVersions:
+    - v1api20230101
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - actiongroups
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -3037,20 +2092,20 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-keyvault-azure-com-v1beta20210401preview-vault
+      path: /validate-kubernetesconfiguration-azure-com-v1api20230501-extension
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validate.v1beta20210401preview.vaults.keyvault.azure.com
+  name: validate.v1api20230501.extensions.kubernetesconfiguration.azure.com
   rules:
   - apiGroups:
-    - keyvault.azure.com
+    - kubernetesconfiguration.azure.com
     apiVersions:
-    - v1beta20210401preview
+    - v1api20230501
     operations:
     - CREATE
     - UPDATE
     resources:
-    - vaults
+    - extensions
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -3121,69 +2176,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-machinelearningservices-azure-com-v1beta20210701-workspace
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210701.workspaces.machinelearningservices.azure.com
-  rules:
-  - apiGroups:
-    - machinelearningservices.azure.com
-    apiVersions:
-    - v1beta20210701
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - workspaces
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-machinelearningservices-azure-com-v1beta20210701-workspacescompute
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210701.workspacescomputes.machinelearningservices.azure.com
-  rules:
-  - apiGroups:
-    - machinelearningservices.azure.com
-    apiVersions:
-    - v1beta20210701
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - workspacescomputes
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-machinelearningservices-azure-com-v1beta20210701-workspacesconnection
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210701.workspacesconnections.machinelearningservices.azure.com
-  rules:
-  - apiGroups:
-    - machinelearningservices.azure.com
-    apiVersions:
-    - v1beta20210701
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - workspacesconnections
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-managedidentity-azure-com-v1api20181130-userassignedidentity
   failurePolicy: Fail
   matchPolicy: Exact
@@ -3214,48 +2206,6 @@ webhooks:
     - managedidentity.azure.com
     apiVersions:
     - v1api20220131preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - federatedidentitycredentials
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-managedidentity-azure-com-v1beta20181130-userassignedidentity
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20181130.userassignedidentities.managedidentity.azure.com
-  rules:
-  - apiGroups:
-    - managedidentity.azure.com
-    apiVersions:
-    - v1beta20181130
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - userassignedidentities
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-managedidentity-azure-com-v1beta20220131preview-federatedidentitycredential
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220131preview.federatedidentitycredentials.managedidentity.azure.com
-  rules:
-  - apiGroups:
-    - managedidentity.azure.com
-    apiVersions:
-    - v1beta20220131preview
     operations:
     - CREATE
     - UPDATE
@@ -3919,6 +2869,111 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
+      path: /validate-network-azure-com-v1api20220401-trafficmanagerprofile
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220401.trafficmanagerprofiles.network.azure.com
+  rules:
+  - apiGroups:
+    - network.azure.com
+    apiVersions:
+    - v1api20220401
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - trafficmanagerprofiles
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-network-azure-com-v1api20220401-trafficmanagerprofilesazureendpoint
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220401.trafficmanagerprofilesazureendpoints.network.azure.com
+  rules:
+  - apiGroups:
+    - network.azure.com
+    apiVersions:
+    - v1api20220401
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - trafficmanagerprofilesazureendpoints
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-network-azure-com-v1api20220401-trafficmanagerprofilesexternalendpoint
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220401.trafficmanagerprofilesexternalendpoints.network.azure.com
+  rules:
+  - apiGroups:
+    - network.azure.com
+    apiVersions:
+    - v1api20220401
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - trafficmanagerprofilesexternalendpoints
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-network-azure-com-v1api20220401-trafficmanagerprofilesnestedendpoint
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220401.trafficmanagerprofilesnestedendpoints.network.azure.com
+  rules:
+  - apiGroups:
+    - network.azure.com
+    apiVersions:
+    - v1api20220401
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - trafficmanagerprofilesnestedendpoints
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
+      path: /validate-network-azure-com-v1api20220701-applicationgateway
+  failurePolicy: Fail
+  matchPolicy: Exact
+  name: validate.v1api20220701.applicationgateways.network.azure.com
+  rules:
+  - apiGroups:
+    - network.azure.com
+    apiVersions:
+    - v1api20220701
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - applicationgateways
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: 'azureserviceoperator-webhook-service'
+      namespace: '{{ .Release.Namespace }}'
       path: /validate-network-azure-com-v1api20220701-bastionhost
   failurePolicy: Fail
   matchPolicy: Exact
@@ -4150,258 +3205,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20180901-privatednszone
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20180901.privatednszones.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20180901
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - privatednszones
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-loadbalancer
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.loadbalancers.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - loadbalancers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-networkinterface
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.networkinterfaces.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - networkinterfaces
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-networksecuritygroup
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.networksecuritygroups.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - networksecuritygroups
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-networksecuritygroupssecurityrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.networksecuritygroupssecurityrules.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - networksecuritygroupssecurityrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-publicipaddress
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.publicipaddresses.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - publicipaddresses
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-routetable
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.routetables.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - routetables
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-routetablesroute
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.routetablesroutes.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - routetablesroutes
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-virtualnetworkgateway
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.virtualnetworkgateways.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualnetworkgateways
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-virtualnetwork
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.virtualnetworks.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualnetworks
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-virtualnetworkssubnet
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.virtualnetworkssubnets.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualnetworkssubnets
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-network-azure-com-v1beta20201101-virtualnetworksvirtualnetworkpeering
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20201101.virtualnetworksvirtualnetworkpeerings.network.azure.com
-  rules:
-  - apiGroups:
-    - network.azure.com
-    apiVersions:
-    - v1beta20201101
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - virtualnetworksvirtualnetworkpeerings
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-operationalinsights-azure-com-v1api20210601-workspace
   failurePolicy: Fail
   matchPolicy: Exact
@@ -4423,27 +3226,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-operationalinsights-azure-com-v1beta20210601-workspace
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210601.workspaces.operationalinsights.azure.com
-  rules:
-  - apiGroups:
-    - operationalinsights.azure.com
-    apiVersions:
-    - v1beta20210601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - workspaces
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-resources-azure-com-v1api20200601-resourcegroup
   failurePolicy: Fail
   matchPolicy: Exact
@@ -4453,27 +3235,6 @@ webhooks:
     - resources.azure.com
     apiVersions:
     - v1api20200601
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - resourcegroups
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-resources-azure-com-v1beta20200601-resourcegroup
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20200601.resourcegroups.resources.azure.com
-  rules:
-  - apiGroups:
-    - resources.azure.com
-    apiVersions:
-    - v1beta20200601
     operations:
     - CREATE
     - UPDATE
@@ -4885,111 +3646,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-servicebus-azure-com-v1beta20210101preview-namespace
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210101preview.namespaces.servicebus.azure.com
-  rules:
-  - apiGroups:
-    - servicebus.azure.com
-    apiVersions:
-    - v1beta20210101preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespaces
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-servicebus-azure-com-v1beta20210101preview-namespacesqueue
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210101preview.namespacesqueues.servicebus.azure.com
-  rules:
-  - apiGroups:
-    - servicebus.azure.com
-    apiVersions:
-    - v1beta20210101preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespacesqueues
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-servicebus-azure-com-v1beta20210101preview-namespacestopic
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210101preview.namespacestopics.servicebus.azure.com
-  rules:
-  - apiGroups:
-    - servicebus.azure.com
-    apiVersions:
-    - v1beta20210101preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespacestopics
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-servicebus-azure-com-v1beta20210101preview-namespacestopicssubscription
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210101preview.namespacestopicssubscriptions.servicebus.azure.com
-  rules:
-  - apiGroups:
-    - servicebus.azure.com
-    apiVersions:
-    - v1beta20210101preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespacestopicssubscriptions
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-servicebus-azure-com-v1beta20210101preview-namespacestopicssubscriptionsrule
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210101preview.namespacestopicssubscriptionsrules.servicebus.azure.com
-  rules:
-  - apiGroups:
-    - servicebus.azure.com
-    apiVersions:
-    - v1beta20210101preview
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - namespacestopicssubscriptionsrules
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-signalrservice-azure-com-v1api20211001-signalr
   failurePolicy: Fail
   matchPolicy: Exact
@@ -4999,27 +3655,6 @@ webhooks:
     - signalrservice.azure.com
     apiVersions:
     - v1api20211001
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - signalrs
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-signalrservice-azure-com-v1beta20211001-signalr
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20211001.signalrs.signalrservice.azure.com
-  rules:
-  - apiGroups:
-    - signalrservice.azure.com
-    apiVersions:
-    - v1beta20211001
     operations:
     - CREATE
     - UPDATE
@@ -5830,132 +4465,6 @@ webhooks:
     service:
       name: 'azureserviceoperator-webhook-service'
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-storage-azure-com-v1beta20210401-storageaccount
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210401.storageaccounts.storage.azure.com
-  rules:
-  - apiGroups:
-    - storage.azure.com
-    apiVersions:
-    - v1beta20210401
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - storageaccounts
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-storage-azure-com-v1beta20210401-storageaccountsblobservice
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210401.storageaccountsblobservices.storage.azure.com
-  rules:
-  - apiGroups:
-    - storage.azure.com
-    apiVersions:
-    - v1beta20210401
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - storageaccountsblobservices
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-storage-azure-com-v1beta20210401-storageaccountsblobservicescontainer
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210401.storageaccountsblobservicescontainers.storage.azure.com
-  rules:
-  - apiGroups:
-    - storage.azure.com
-    apiVersions:
-    - v1beta20210401
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - storageaccountsblobservicescontainers
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-storage-azure-com-v1beta20210401-storageaccountsmanagementpolicy
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210401.storageaccountsmanagementpolicies.storage.azure.com
-  rules:
-  - apiGroups:
-    - storage.azure.com
-    apiVersions:
-    - v1beta20210401
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - storageaccountsmanagementpolicies
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-storage-azure-com-v1beta20210401-storageaccountsqueueservice
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210401.storageaccountsqueueservices.storage.azure.com
-  rules:
-  - apiGroups:
-    - storage.azure.com
-    apiVersions:
-    - v1beta20210401
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - storageaccountsqueueservices
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-storage-azure-com-v1beta20210401-storageaccountsqueueservicesqueue
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20210401.storageaccountsqueueservicesqueues.storage.azure.com
-  rules:
-  - apiGroups:
-    - storage.azure.com
-    apiVersions:
-    - v1beta20210401
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - storageaccountsqueueservicesqueues
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
       path: /validate-subscription-azure-com-v1api20211001-alias
   failurePolicy: Fail
   matchPolicy: Exact
@@ -5965,27 +4474,6 @@ webhooks:
     - subscription.azure.com
     apiVersions:
     - v1api20211001
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - aliases
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-subscription-azure-com-v1beta20211001-alias
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20211001.aliases.subscription.azure.com
-  rules:
-  - apiGroups:
-    - subscription.azure.com
-    apiVersions:
-    - v1beta20211001
     operations:
     - CREATE
     - UPDATE
@@ -6070,48 +4558,6 @@ webhooks:
     - web.azure.com
     apiVersions:
     - v1api20220301
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - sites
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-web-azure-com-v1beta20220301-serverfarm
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220301.serverfarms.web.azure.com
-  rules:
-  - apiGroups:
-    - web.azure.com
-    apiVersions:
-    - v1beta20220301
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - serverfarms
-  sideEffects: None
-- admissionReviewVersions:
-  - v1
-  clientConfig:
-    service:
-      name: 'azureserviceoperator-webhook-service'
-      namespace: '{{ .Release.Namespace }}'
-      path: /validate-web-azure-com-v1beta20220301-site
-  failurePolicy: Fail
-  matchPolicy: Exact
-  name: validate.v1beta20220301.sites.web.azure.com
-  rules:
-  - apiGroups:
-    - web.azure.com
-    apiVersions:
-    - v1beta20220301
     operations:
     - CREATE
     - UPDATE

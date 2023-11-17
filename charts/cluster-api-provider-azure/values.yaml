@@ -17,7 +17,7 @@ asoControllerManager:
       readOnlyRootFilesystem: true
     image:
       repository: mcr.microsoft.com/k8s/azureserviceoperator
-      tag: v2.3.0
+      tag: v2.4.0
     imagePullPolicy: Always
     resources:
       limits:
@@ -64,7 +64,7 @@ capzControllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api-azure/cluster-api-azure-controller
-      tag: v1.11.6
+      tag: v1.12.0
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}

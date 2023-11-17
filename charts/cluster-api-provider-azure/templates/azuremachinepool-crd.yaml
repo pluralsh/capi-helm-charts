@@ -105,9 +105,6 @@ spec:
               location:
                 description: Location is the Azure region location e.g. westus2
                 type: string
-              nodeDrainTimeout:
-                description: 'NodeDrainTimeout is the total amount of time that the controller will spend on draining a node. The default value is 0, meaning that the node can be drained without any time limitations. NOTE: NodeDrainTimeout is different from `kubectl drain --timeout`'
-                type: string
               orchestrationMode:
                 default: Uniform
                 description: OrchestrationMode specifies the orchestration mode for the Virtual Machine Scale Set
@@ -732,6 +729,9 @@ spec:
                     - version
                     type: object
                 type: object
+              infrastructureMachineKind:
+                description: InfrastructureMachineKind is the kind of the infrastructure resources behind MachinePool Machines.
+                type: string
               instances:
                 description: Instances is the VM instance status for each VM in the VMSS
                 items:

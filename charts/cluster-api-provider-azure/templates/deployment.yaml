@@ -34,6 +34,8 @@ spec:
         - --enable-leader-election
         - --v=2
         - --crd-pattern=resources.azure.com/ResourceGroup
+        - --webhook-port=9443
+        - --webhook-cert-dir=/tmp/k8s-webhook-server/serving-certs
         env:
         - name: AZURE_CLIENT_ID
           valueFrom:
