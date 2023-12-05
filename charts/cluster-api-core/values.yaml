@@ -1,4 +1,6 @@
 configVariables:
+  capiDiagnosticsAddress: :8443
+  capiInsecureDiagnostics: false
   clusterTopology: false
   exprimental:
     clusterResourceSet: false
@@ -19,7 +21,7 @@ controllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api/cluster-api-controller
-      tag: v1.5.4
+      tag: v1.6.0
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
