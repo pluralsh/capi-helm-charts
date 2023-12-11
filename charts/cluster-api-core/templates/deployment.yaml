@@ -30,7 +30,8 @@ spec:
       containers:
       - args:
         - --leader-elect
-        - --metrics-bind-addr=localhost:8080
+        - --diagnostics-address={{ .Values.configVariables.capiDiagnosticsAddress }}
+        - --insecure-diagnostics={{ .Values.configVariables.capiInsecureDiagnostics }}
         - --feature-gates=MachinePool={{ .Values.configVariables.exprimental.machinePool }},ClusterResourceSet={{ .Values.configVariables.exprimental.clusterResourceSet }},ClusterTopology={{ .Values.configVariables.clusterTopology }},RuntimeSDK={{ .Values.configVariables.exprimental.runtimeSdk }},MachineSetPreflightChecks={{ .Values.configVariables.exprimental.machineSetPreflightChecks }}
         command:
         - /manager
@@ -62,6 +63,9 @@ spec:
           protocol: TCP
         - containerPort: 9440
           name: healthz
+          protocol: TCP
+        - containerPort: 8443
+          name: metrics
           protocol: TCP
         readinessProbe:
           httpGet:

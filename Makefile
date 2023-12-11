@@ -1,7 +1,7 @@
-CORE_VERSION=v1.5.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
-CONTROL_PLANE_VERSION=v1.5.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
-BOOTSTRAP_VERSION=v1.5.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
-DOCKER_VERSION=v1.5.4# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+CORE_VERSION=v1.6.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+CONTROL_PLANE_VERSION=v1.6.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+BOOTSTRAP_VERSION=v1.6.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
+DOCKER_VERSION=v1.6.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api
 AWS_VERSION=v2.3.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-aws
 AZURE_VERSION=v1.12.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-azure
 GCP_VERSION=v1.5.0# renovate: datasource=github-releases depName=kubernetes-sigs/cluster-api-provider-gcp
@@ -43,6 +43,7 @@ core: kustomize helmify yq
 # Remove some double curly brackets in the CRD description since helm will try to template them
 	$(SED) -i 's/{{ .cluster.name }}-{{ .random }}/{ .cluster.name }-{ .random }/g' charts/cluster-api-core/templates/clusterclass-crd.yaml
 	$(SED) -i 's/{{ .cluster.name }}-{{ .machineDeployment.topologyName }}-{{ .random }}/{ .cluster.name }-{ .machineDeployment.topologyName }-{ .random }/g' charts/cluster-api-core/templates/clusterclass-crd.yaml
+	$(SED) -i 's/{{ .cluster.name }}-{{ .machinePool.topologyName }}-{{ .random }}/{ .cluster.name }-{ .machinePool.topologyName }-{ .random }/g' charts/cluster-api-core/templates/clusterclass-crd.yaml
 
 	$(YQ) -i ".nameOverride=\"\" | .fullnameOverride=\"\"" charts/cluster-api-core/values.yaml
 	@if [ $$($(YQ) ".appVersion" charts/cluster-api-core/Chart.yaml) != "${CORE_VERSION}" ]; then \
