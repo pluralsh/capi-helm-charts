@@ -21,7 +21,7 @@ controllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api/cluster-api-controller
-      tag: v1.6.0
+      tag: v1.6.1
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
