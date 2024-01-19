@@ -36,8 +36,12 @@ asoControllerManagerMetricsService:
       targetPort: 0
   type: ClusterIP
 asoControllerSettings:
+  azureAuthorityHost: ""
   azureClientId: ""
+  azureResourceManagerAudience: ""
+  azureResourceManagerEndpoint: ""
   azureSubscriptionId: ""
+  azureSyncPeriod: ""
   azureTenantId: ""
   azureClientSecret: ""
 asoProxyService:
@@ -64,7 +68,7 @@ capzControllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api-azure/cluster-api-azure-controller
-      tag: v1.12.1
+      tag: v1.12.2
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
@@ -106,6 +110,10 @@ capzWebhookService:
       targetPort: webhook-server
   type: ClusterIP
 configVariables:
+  azureAuthorityHost: '""'
+  azureResourceManagerAudience: '""'
+  azureResourceManagerEndpoint: '""'
+  azureSyncPeriod: '""'
   exprimental:
     aksResourceHealth: false
     edgezone: false
