@@ -68,7 +68,7 @@ capzControllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api-azure/cluster-api-azure-controller
-      tag: v1.12.2
+      tag: v1.12.3
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
