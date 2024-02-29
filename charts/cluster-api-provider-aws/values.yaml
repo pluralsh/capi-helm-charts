@@ -1,9 +1,11 @@
 configVariables:
   autoControllerIdentityCreator: true
   awsControllerIamRole: ''
+  capaDiagnosticsAddress: :8443
   capaEks: true
   capaEksAddRoles: false
   capaEksIam: false
+  capaInsecureDiagnostics: false
   capaLoglevel: 0
   eventBridgeInstanceState: false
   exprimental:
@@ -12,6 +14,7 @@ configVariables:
     eksFargate: false
     externalResourceGc: false
     machinePool: false
+    rosa: false
   k8SCpLabel: node-role.kubernetes.io/control-plane
   tagUnmanagedNetworkResources: true
 controllerManager:
@@ -29,7 +32,7 @@ controllerManager:
       awsSharedCredentialsFile: /home/.aws/credentials
     image:
       repository: registry.k8s.io/cluster-api-aws/cluster-api-aws-controller
-      tag: v2.3.5
+      tag: v2.4.0
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}

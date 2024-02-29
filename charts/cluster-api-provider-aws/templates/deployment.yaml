@@ -45,9 +45,10 @@ spec:
       containers:
       - args:
         - --leader-elect
-        - --feature-gates=EKS={{ .Values.configVariables.capaEks }},EKSEnableIAM={{ .Values.configVariables.capaEksIam }},EKSAllowAddRoles={{ .Values.configVariables.capaEksAddRoles }},EKSFargate={{ .Values.configVariables.exprimental.eksFargate }},MachinePool={{ .Values.configVariables.exprimental.machinePool }},EventBridgeInstanceState={{ .Values.configVariables.eventBridgeInstanceState }},AutoControllerIdentityCreator={{ .Values.configVariables.autoControllerIdentityCreator }},BootstrapFormatIgnition={{ .Values.configVariables.exprimental.bootstrapFormatIgnition }},ExternalResourceGC={{ .Values.configVariables.exprimental.externalResourceGc }},AlternativeGCStrategy={{ .Values.configVariables.exprimental.alternativeGcStrategy }},TagUnmanagedNetworkResources={{ .Values.configVariables.tagUnmanagedNetworkResources }}
+        - --feature-gates=EKS={{ .Values.configVariables.capaEks }},EKSEnableIAM={{ .Values.configVariables.capaEksIam }},EKSAllowAddRoles={{ .Values.configVariables.capaEksAddRoles }},EKSFargate={{ .Values.configVariables.exprimental.eksFargate }},MachinePool={{ .Values.configVariables.exprimental.machinePool }},EventBridgeInstanceState={{ .Values.configVariables.eventBridgeInstanceState }},AutoControllerIdentityCreator={{ .Values.configVariables.autoControllerIdentityCreator }},BootstrapFormatIgnition={{ .Values.configVariables.exprimental.bootstrapFormatIgnition }},ExternalResourceGC={{ .Values.configVariables.exprimental.externalResourceGc }},AlternativeGCStrategy={{ .Values.configVariables.exprimental.alternativeGcStrategy }},TagUnmanagedNetworkResources={{ .Values.configVariables.tagUnmanagedNetworkResources }},ROSA={{ .Values.configVariables.exprimental.rosa }}
         - --v={{ .Values.configVariables.capaLoglevel }}
-        - --metrics-bind-addr=0.0.0.0:8080
+        - --diagnostics-address={{ .Values.configVariables.capaDiagnosticsAddress }}
+        - --insecure-diagnostics={{ .Values.configVariables.capaInsecureDiagnostics }}
         env:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: {{ quote .Values.controllerManager.manager.env.awsSharedCredentialsFile }}
@@ -68,6 +69,9 @@ spec:
           protocol: TCP
         - containerPort: 9440
           name: healthz
+          protocol: TCP
+        - containerPort: 8443
+          name: metrics
           protocol: TCP
         readinessProbe:
           httpGet:
