@@ -36,23 +36,17 @@ rules:
   - update
   - watch
 - apiGroups:
-  - aadpodidentity.k8s.io
+  - authentication.k8s.io
   resources:
-  - azureidentities
-  - azureidentities/status
+  - tokenreviews
   verbs:
-  - get
-  - list
-  - watch
+  - create
 - apiGroups:
-  - aadpodidentity.k8s.io
+  - authorization.k8s.io
   resources:
-  - azureidentitybindings
-  - azureidentitybindings/status
+  - subjectaccessreviews
   verbs:
-  - get
-  - list
-  - watch
+  - create
 - apiGroups:
   - bootstrap.cluster.x-k8s.io
   resources:
@@ -90,6 +84,26 @@ rules:
   - machines/status
   verbs:
   - delete
+  - get
+  - list
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleetsmembers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - containerservice.azure.com
+  resources:
+  - fleetsmembers/status
+  verbs:
   - get
   - list
   - watch
@@ -304,9 +318,33 @@ rules:
   - patch
   - update
 - apiGroups:
+  - kubernetesconfiguration.azure.com
+  resources:
+  - extensions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kubernetesconfiguration.azure.com
+  resources:
+  - extensions/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
   - network.azure.com
   resources:
+  - bastionhosts
   - natgateways
+  - privateendpoints
+  - virtualnetworks
+  - virtualnetworkssubnets
   verbs:
   - create
   - delete
@@ -318,7 +356,35 @@ rules:
 - apiGroups:
   - network.azure.com
   resources:
+  - bastionhosts/status
   - natgateways/status
+  - privateendpoints/status
+  - virtualnetworks/status
+  - virtualnetworkssubnets/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - privateendpoints
+  - virtualnetworks
+  - virtualnetworkssubnets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - network.azure.com
+  resources:
+  - privateendpoints/status
+  - virtualnetworks/status
+  - virtualnetworkssubnets/status
   verbs:
   - get
   - list

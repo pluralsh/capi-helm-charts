@@ -33,7 +33,7 @@ spec:
         - --health-addr=:8081
         - --enable-leader-election
         - --v=2
-        - --crd-pattern=resources.azure.com/ResourceGroup
+        - --crd-pattern=resources.azure.com/ResourceGroup{{ .Values.configVariables.additionalAsoCrds }}
         - --webhook-port=9443
         - --webhook-cert-dir=/tmp/k8s-webhook-server/serving-certs
         env:
@@ -188,7 +188,6 @@ kind: Deployment
 metadata:
   name: {{ include "cluster-api-provider-azure.fullname" . }}-capz-controller-manager
   labels:
-    aadpodidbinding: capz-controller-aadpodidentity-selector
     cluster.x-k8s.io/provider: infrastructure-azure
     control-plane: capz-controller-manager
   {{- include "cluster-api-provider-azure.labels" . | nindent 4 }}
@@ -209,7 +208,6 @@ spec:
   template:
     metadata:
       labels:
-        aadpodidbinding: capz-controller-aadpodidentity-selector
         azure.workload.identity/use: "true"
         cluster.x-k8s.io/provider: infrastructure-azure
         control-plane: capz-controller-manager
@@ -220,7 +218,8 @@ spec:
       containers:
       - args:
         - --leader-elect
-        - --metrics-bind-addr=localhost:8080
+        - --diagnostics-address={{ .Values.configVariables.capzDiagnosticsAddress }}
+        - --insecure-diagnostics={{ .Values.configVariables.capzInsecureDiagnostics }}
         - --feature-gates=MachinePool={{ .Values.configVariables.exprimental.machinePool }},AKSResourceHealth={{ .Values.configVariables.exprimental.aksResourceHealth }},EdgeZone={{ .Values.configVariables.exprimental.edgezone }}
         - --v=0
         env:
@@ -253,6 +252,9 @@ spec:
           protocol: TCP
         - containerPort: 9440
           name: healthz
+          protocol: TCP
+        - containerPort: 8443
+          name: metrics
           protocol: TCP
         readinessProbe:
           httpGet:
