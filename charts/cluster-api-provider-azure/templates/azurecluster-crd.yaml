@@ -5,7 +5,7 @@ metadata:
   name: azureclusters.infrastructure.cluster.x-k8s.io
   annotations:
     cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/{{ include "cluster-api-provider-azure.fullname" . }}-capz-serving-cert'
-    controller-gen.kubebuilder.io/version: v0.9.2
+    controller-gen.kubebuilder.io/version: v0.13.0
   labels:
     clusterctl.cluster.x-k8s.io: ""
     cluster.x-k8s.io/provider: infrastructure-azure
@@ -250,6 +250,7 @@ spec:
                             - node
                             - control-plane
                             - bastion
+                            - all
                             type: string
                           routeTable:
                             description: RouteTable defines the route table that should be attached to this subnet.
@@ -318,6 +319,11 @@ spec:
                                     sourcePorts:
                                       description: SourcePorts specifies source port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
                                       type: string
+                                    sources:
+                                      description: Sources specifies The CIDR or source IP ranges.
+                                      items:
+                                        type: string
+                                      type: array
                                   required:
                                   - description
                                   - direction
@@ -832,6 +838,7 @@ spec:
                           - node
                           - control-plane
                           - bastion
+                          - all
                           type: string
                         routeTable:
                           description: RouteTable defines the route table that should be attached to this subnet.
@@ -900,6 +907,11 @@ spec:
                                   sourcePorts:
                                     description: SourcePorts specifies source port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
                                     type: string
+                                  sources:
+                                    description: Sources specifies The CIDR or source IP ranges.
+                                    items:
+                                      type: string
+                                    type: array
                                 required:
                                 - description
                                 - direction

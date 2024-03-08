@@ -17,7 +17,7 @@ asoControllerManager:
       readOnlyRootFilesystem: true
     image:
       repository: mcr.microsoft.com/k8s/azureserviceoperator
-      tag: v2.4.0
+      tag: v2.5.0
     imagePullPolicy: Always
     resources:
       limits:
@@ -68,52 +68,26 @@ capzControllerManager:
       runAsUser: 65532
     image:
       repository: registry.k8s.io/cluster-api-azure/cluster-api-azure-controller
-      tag: v1.12.4
+      tag: v1.14.0
     imagePullPolicy: IfNotPresent
     resources:
       limits: {}
       requests: {}
   nodeSelector: {}
   replicas: 1
-capzNmi:
-  annotations: {}
-  labels: {}
-  nmi:
-    containerSecurityContext:
-      capabilities:
-        add:
-          - DAC_READ_SEARCH
-          - NET_ADMIN
-          - NET_RAW
-        drop:
-          - ALL
-      runAsUser: 0
-    env:
-      forcenamespaced: "true"
-      logLevel: DEBUG
-    image:
-      repository: mcr.microsoft.com/oss/azure/aad-pod-identity/nmi
-      tag: v1.8.14
-    imagePullPolicy: IfNotPresent
-    resources:
-      limits:
-        cpu: 200m
-        memory: 512Mi
-      requests:
-        cpu: 100m
-        memory: 256Mi
-  nodeSelector:
-    kubernetes.io/os: linux
 capzWebhookService:
   ports:
     - port: 443
       targetPort: webhook-server
   type: ClusterIP
 configVariables:
+  additionalAsoCrds: ' '
   azureAuthorityHost: '""'
   azureResourceManagerAudience: '""'
   azureResourceManagerEndpoint: '""'
   azureSyncPeriod: '""'
+  capzDiagnosticsAddress: :8443
+  capzInsecureDiagnostics: false
   exprimental:
     aksResourceHealth: false
     edgezone: false
